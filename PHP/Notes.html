@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="Syntax-eg1" data-id="Syntax-eg1"><a class="anchor hidden-xs" href="#Syntax-eg1" title="Syntax-eg1"><span class="octicon octicon-link"></span></a><span>Syntax eg.1</span></h2><p><span>A PHP script can be placed anywhere in the document.</span></p><p><span>A PHP script starts with </span>&lt;?php and ends with ?&gt;<span>:</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="Syntax-eg1" data-id="Syntax-eg1"><a class="anchor hidden-xs" href="#Syntax-eg1" title="Syntax-eg1"><span class="octicon octicon-link"></span></a><span>Syntax eg.1</span></h2><p><span>A PHP script can be placed anywhere in the document.</span></p><p><span>A PHP script starts with </span>&lt;?php and ends with ?&gt;<span>:</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
 <span class="hljs-comment">// PHP code goes here</span>
 <span class="hljs-meta">?&gt;</span>
 </code></pre><p><span>PHP files are saved with .php extension</span></p><p><span>Basic “Hello World” program</span></p><p><span>Example 1.1</span></p><pre><code class="php hljs">&lt;!DOCTYPE html&gt;
@@ -169,6 +169,138 @@ JD
 8
 9
 10
+</code></pre><h2 id="Form-Handling-eg5" data-id="Form-Handling-eg5"><a class="anchor hidden-xs" href="#Form-Handling-eg5" title="Form-Handling-eg5"><span class="octicon octicon-link"></span></a><span>Form Handling eg.5</span></h2><p><span>There are two ways the browser client can send information to the web server.</span></p><ul>
+<li><span>The GET Method</span></li>
+<li><span>The POST Method</span></li>
+</ul><p><span>When we develop a website or a web application, we often have to create forms to take input from users, like a </span><strong><span>Login</span></strong><span> form or a </span><strong><span>Registration</span></strong><span> form.</span></p><p><span>Creating a form on the webpage is accomplished using HTML, while PHP serves as a transport for those values from the webpage to the server and then in further processing those values.</span></p><p><span>PHP provides two </span><strong><span>superglobals</span></strong><span> </span><code>$_GET</code><span> and </span><code>$_POST</code><span> for collecting form-data for processing.</span></p><h3 id="The-GET-Method" data-id="The-GET-Method"><a class="anchor hidden-xs" href="#The-GET-Method" title="The-GET-Method"><span class="octicon octicon-link"></span></a><span>The GET Method</span></h3><p><span>The GET method sends the encoded user information appended to the page request. The page and the encoded information are separated by the ? character.</span></p><pre><code class="bash hljs">http://www.test.com/index.htm?name1=value1&amp;name2=value2
+</code></pre><p><strong><span>When to use Get Method?</span></strong></p><ul>
+<li><span>The variable names and values will be visible in URL if HTML forms submitted by the GET method.</span></li>
+<li><span>The GET method is restricted to send up to </span><em><span>2048 characters</span></em><span> only.</span></li>
+<li><span>When you submit sensitive information like passwords then should not use this method.</span></li>
+<li><span>GET method can’t be used, to send binary data like images and Word documents.</span></li>
+<li><span>GET method data can be accessed using PHP QUERY_STRING environment variable.</span></li>
+<li><span>PHP $_GET associative array is used to access all the sent information by GET method.</span></li>
+</ul><p><span>Example 5.1</span></p><p><code>Filename: form_get_5.1.html</code></p><pre><code class="html hljs"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Required meta tags --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container mt-3"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Form Handling <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>using <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>GET<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> Method<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"form_get_process_5.1.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"get"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"Name"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+                            <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"helpId"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">""</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+                            
+                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+                            <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"helpId"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">""</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+                            
+                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"password"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span>
+                            <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"helpId"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">""</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>Password<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Optional JavaScript --&gt;</span>
+    <span class="hljs-comment">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://code.jquery.com/jquery-3.2.1.slim.min.js"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p><code>Filename: form_get_process_5.1.php</code></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+    $name = $_GET[<span class="hljs-string">'name'</span>];
+    $email = $_GET[<span class="hljs-string">'email'</span>];
+    $password = $_GET[<span class="hljs-string">'password'</span>];
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello "</span> . $name . <span class="hljs-string">"&lt;br&gt;"</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Your email is "</span>.$email;
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="bash hljs">Hello John Doe
+Your email is john.doe@gmail.com
+</code></pre><h3 id="The-POST-Method" data-id="The-POST-Method"><a class="anchor hidden-xs" href="#The-POST-Method" title="The-POST-Method"><span class="octicon octicon-link"></span></a><span>The POST Method</span></h3><p><span>Information sent from a form with the POST method is invisible and has no limits on the amount of information to send.</span></p><blockquote>
+<p><span>However, there is an 8 MB max size for the POST method, by default (can be changed by setting the post_max_size in the php.ini file).</span></p>
+</blockquote><p><strong><span>When to use POST Method?</span></strong></p><ul>
+<li><span>The POST method can be used to send ASCII as well as binary data.</span></li>
+<li><span>The data sent by POST method goes through HTTP header, so security depends on HTTP protocol. By using Secure HTTP, you can make sure that your information is secure.</span></li>
+<li><span>PHP $_POST associative array is used to access all the sent information by POST method.</span></li>
+<li><span>Variables are not visible in the URL so users can’t bookmark your page.</span></li>
+</ul><p><span>Example 5.2</span></p><p><code>Filename: form_post_5.2.html</code></p><pre><code class="html hljs"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Required meta tags --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container mt-3"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Form Handling <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>using <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>POST<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> Method<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"form_post_process_5.2.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"Name"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+                            <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"helpId"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">""</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+                            
+                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+                            <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"helpId"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">""</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+                            
+                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"password"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span>
+                            <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"helpId"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">""</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">id</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>Password<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Optional JavaScript --&gt;</span>
+    <span class="hljs-comment">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://code.jquery.com/jquery-3.2.1.slim.min.js"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p><code>Filename: form_post_process_5.2.php</code></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+    $name = $_POST[<span class="hljs-string">'name'</span>];
+    $email = $_POST[<span class="hljs-string">'email'</span>];
+    $password = $_POST[<span class="hljs-string">'password'</span>];
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello "</span> . $name . <span class="hljs-string">"&lt;br&gt;"</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Your email is "</span>.$email;
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="bash hljs">Hello John Doe
+Your email is john.doe@gmail.com
 </code></pre></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
@@ -189,11 +321,16 @@ JD
 <li><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
 </ul>
 </li>
-<li><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
+<li class=""><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
 <li><a href="#For-Loop" title="For Loop">For Loop</a></li>
 <li><a href="#While-Loop" title="While Loop">While Loop</a></li>
-<li><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
+<li class=""><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
 <li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
+</ul>
+</li>
+<li><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
+<li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
+<li><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
 </ul>
 </li>
 </ul>
@@ -217,11 +354,16 @@ JD
 <li><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
 </ul>
 </li>
-<li><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
+<li class=""><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
 <li><a href="#For-Loop" title="For Loop">For Loop</a></li>
 <li><a href="#While-Loop" title="While Loop">While Loop</a></li>
-<li><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
+<li class=""><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
 <li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
+</ul>
+</li>
+<li><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
+<li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
+<li><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
 </ul>
 </li>
 </ul>
