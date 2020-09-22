@@ -1,28 +1,37 @@
 <?php 
+    $errors = array();
     if( isset( $_GET['submit'] ) ){
+
         $name = $_GET['name'];
         $email = $_GET['email'];
         $password = $_GET['password'];
-    
-        if( empty($name) ){
-            echo "name is required";
-    
+        // $errors = [];
+       
+        if ( empty($name) ){
+            // $errors['name'] = 'required';
+            array_push($errors, 'name');
         }
-        else if( empty($email) ){
-            echo "email is required ";
+        if( empty($email) ){
+            // $errors['email'] = 'required';
+            // echo "email is required";
+            array_push($errors, 'email');
         }
-        else if( empty($password) ){
-            echo "password is required ";
+        if( empty($password) ){
+            // echo "password is required ";
+            // $errors['password'] = 'required';
+            array_push($errors, 'password');
         }
-        else{
+        // print_r($errors);
+        if( count($errors) == 0 ){
             
             echo "Hello " . $name . "<br>";
             echo "Your email is ".$email;
         }
     }
-    else{
+   
+    if( !( isset($_GET['submit']) ) || count($errors) > 0 ){
 
-
+    
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,22 +51,24 @@
                     <form action="form.php" method="get">
                         <div class="form-group">
                             <label for="Name"></label>
+                            <span style="color:red;"><?php if( in_array('name', $errors) ){ echo 'Name is required'; } ?></span>
                             <input type="text"
-                            class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="">
+                            class="form-control" name="name" value="<?php if( isset( $_GET['name'] ) ){ echo $_GET['name']; } ?>" id="name" aria-describedby="helpId" placeholder="">
                             <small id="" class="form-text text-muted">Name</small>
+                            
                         </div>
                         <div class="form-group">
-                            
+                        <span style="color:red;"><?php if( in_array('email', $errors) ){ echo 'Email is required'; } ?></span>
                             <label for="email"></label>
-                            <input type="text"
-                            class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="">
+                            <input type="email"
+                            class="form-control" name="email" value="<?php if( isset( $_GET['email'] ) ){ echo $_GET['email']; } ?>" id="email" aria-describedby="helpId" placeholder="">
                             <small id="" class="form-text text-muted">Email</small>
                         </div>
                         <div class="form-group">
-                            
+                        <span style="color:red;"><?php if( in_array('password', $errors) ){ echo 'Password is required'; } ?> </span>
                             <label for="password"></label>
                             <input type="password"
-                            class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="">
+                            class="form-control" name="password" value="<?php if( isset( $_GET['password'] ) ){ echo $_GET['password']; } ?>" id="password" aria-describedby="helpId" placeholder="">
                             <small id="" class="form-text text-muted">Password</small>
                         </div>
                         <input class="btn btn-primary" type="submit" value="submit" name="submit">
