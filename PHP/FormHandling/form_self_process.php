@@ -1,27 +1,57 @@
 <?php 
+
     $errors = array();
     if( isset( $_GET['submit'] ) ){
-
+        
         $name = $_GET['name'];
         $email = $_GET['email'];
         $password = $_GET['password'];
-        // $errors = [];
-       
+        $gender = $_GET['gender'];
+        $languages = array();
         if ( empty($name) ){
-            // $errors['name'] = 'required';
+            
             array_push($errors, 'name');
         }
         if( empty($email) ){
-            // $errors['email'] = 'required';
-            // echo "email is required";
+         
             array_push($errors, 'email');
         }
         if( empty($password) ){
-            // echo "password is required ";
-            // $errors['password'] = 'required';
+           
             array_push($errors, 'password');
         }
-        // print_r($errors);
+        if( empty($gender) ){
+         
+            array_push($errors, 'gender');
+        }
+        if( isset( $_GET['html'] ) ){
+
+            array_push($languages, $_GET['html']);        
+        }
+        else{
+            array_push($errors, 'html');
+        }
+        if( isset( $_GET['css'] ) ){
+
+            array_push($languages, $_GET['css']);        
+        }
+        if( isset( $_GET['javascript'] ) ){
+
+            array_push($languages, $_GET['javascript']);        
+        }
+        if( isset( $_GET['php'] ) ){
+
+            array_push($languages, $_GET['php']);        
+        }
+        
+        if(  isset($_GET['adult'])    ){
+            if( $_GET['adult'] != 'yes' ){
+                array_push($errors, 'adult');
+            }
+        }
+        else{
+            array_push($errors, 'adult');
+        }
         if( count($errors) == 0 ){
             
             echo "Hello " . $name . "<br>";
@@ -70,6 +100,61 @@
                             <input type="password"
                             class="form-control" name="password" value="<?php if( isset( $_GET['password'] ) ){ echo $_GET['password']; } ?>" id="password" aria-describedby="helpId" placeholder="">
                             <small id="" class="form-text text-muted">Password</small>
+                        </div>
+                        <div class="form-group">
+                        <span style="color:red;"><?php if( in_array('gender', $errors) ){ echo 'Gender is required'; } ?> </span>
+                            <label for="gender"></label>
+                            <select class="form-control"  name="gender" id="">
+                                <option selected value="">Please Select your gender</option>
+                                <option <?php if( isset($_GET['gender']) &&  $_GET['gender'] == 'male'){ echo 'selected'; } ?> value="male">Male</option>
+                                <option <?php if( isset($_GET['gender']) &&  $_GET['gender'] == 'female'){ echo 'selected'; } ?>  value="female">Female</option>
+                            </select>
+                            <small id="" class="form-text text-muted">Gender</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="languages">Languages you know</label>
+                            <div class="form-check">
+                                <span style="color:red;"><?php if( in_array('html', $errors) ){ echo 'HTML is required'; } ?> </span><br> 
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="html" id="" value="html" <?php if( isset($_GET['html']) ){ echo 'checked'; } ?> >
+                                HTML  
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="css" id="" value="css" <?php if( isset($_GET['css']) ){ echo 'checked'; } ?> >
+                                CSS  
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="javascript" id="" value="javascript" <?php if( isset($_GET['javascript']) ){ echo 'checked'; } ?> >
+                                Javascript  
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="php" id="" value="php" <?php if( isset($_GET['php']) ){ echo 'checked'; } ?> >
+                                PHP
+                              </label>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="languages">Above 18 year?</label>
+                            <span style="color:red;"><?php if( in_array('adult', $errors) ){ echo 'your age should be above 18'; } ?> </span><br> 
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="adult" id="adult" value="yes" <?php if( isset( $_GET['adult']) && $_GET['adult'] == 'yes' ){ echo 'checked'; } ?> >
+                                yes
+                              </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="adult" id="adult" value="no" <?php if( isset( $_GET['adult'] ) && $_GET['adult'] == 'no' ){ echo 'checked'; } ?> >
+                                no
+                              </label>
+                            </div>
                         </div>
                         <input class="btn btn-primary" type="submit" value="submit" name="submit">
                     </form>
