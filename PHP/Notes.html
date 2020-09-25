@@ -1168,7 +1168,132 @@ Your email is john.doe@gmail.com
 <td></td>
 </tr>
 </tbody>
-</table></div>
+</table><h2 id="PHP-Include-eg7" data-id="PHP-Include-eg7"><a class="anchor hidden-xs" href="#PHP-Include-eg7" title="PHP-Include-eg7"><span class="octicon octicon-link"></span></a><span>PHP Include eg.7</span></h2><p><span>You can include the content of a PHP file into another PHP file before the server executes it. There are two PHP functions which can be used to included one PHP file into another PHP file.</span></p><ul>
+<li><code>include()</code></li>
+<li><code>require()</code></li>
+</ul><p><span>The include and require statements are identical, except upon failure:</span></p><ul>
+<li><code>require</code><span> will produce a fatal error (E_COMPILE_ERROR) and stop the script</span></li>
+<li><code>include</code><span> will only produce a warning (E_WARNING) and the script will continue</span></li>
+</ul><p><strong><span>Syntax</span></strong></p><pre><code class="php hljs"><span class="hljs-keyword">include</span> <span class="hljs-string">'filename'</span>;
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'filename'</span>;
+</code></pre><p><span>Example 7.1</span></p><p><span>In this example we will include file </span><code>add_function_7.1.php</code><span> in file </span><code>include_7.1.php</code></p><p><code>filename: add_function_7.1.php</code></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">($n1, $n2)</span>
+    </span>{
+        <span class="hljs-keyword">return</span> $n1+$n2;
+    }
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><code>filename: include_7.1.php</code></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+
+    <span class="hljs-keyword">include</span> <span class="hljs-string">'add_function.php'</span>;
+
+    $num1 = <span class="hljs-number">10</span>;
+    $num2 = <span class="hljs-number">20</span>;
+
+    $ans = add($num1, $num2);
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'The addition of '</span>. $num1 . <span class="hljs-string">' and '</span> . $num2 . <span class="hljs-string">' is = '</span> . $ans;
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs">The addition <span class="hljs-keyword">of</span> <span class="hljs-number">10</span> <span class="hljs-keyword">and</span> <span class="hljs-number">20</span> <span class="hljs-keyword">is</span> = <span class="hljs-number">30</span>
+</code></pre><p><span>Example 7.2</span></p><p><span>In this example we will require file </span><code>sub_function_7.2.php</code><span> in file </span><code>require_7.2.php</code></p><p><code>filename: sub_function_7.2.php</code></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sub</span><span class="hljs-params">($n1, $n2)</span>
+    </span>{
+        <span class="hljs-keyword">return</span> $n1-$n2;
+    }
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><code>filename: require_7.2.php</code></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+
+    <span class="hljs-keyword">require</span> <span class="hljs-string">'sub_function.php'</span>;
+
+    $num1 = <span class="hljs-number">10</span>;
+    $num2 = <span class="hljs-number">20</span>;
+
+    $ans = sub($num2, $num1);
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">'The subtraction of '</span>. $num2 . <span class="hljs-string">' and '</span> . $num1 . <span class="hljs-string">' is = '</span> . $ans;
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs">The subtraction <span class="hljs-keyword">of</span> <span class="hljs-number">20</span> <span class="hljs-keyword">and</span> <span class="hljs-number">10</span> <span class="hljs-keyword">is</span> = <span class="hljs-number">10</span>
+</code></pre><h2 id="PHP-Cookies-eg8" data-id="PHP-Cookies-eg8"><a class="anchor hidden-xs" href="#PHP-Cookies-eg8" title="PHP-Cookies-eg8"><span class="octicon octicon-link"></span></a><span>PHP Cookies eg.8</span></h2><p><span>A cookie is a small text file that lets you store a small amount of data (nearly 4KB) on the user’s computer.</span></p><p><span>There are three steps involved in identifying returning users −</span></p><ul>
+<li><span>Server script sends a set of cookies to the browser. For example name, age, or identification number etc.</span></li>
+<li><span>Browser stores this information on local machine for future use.</span></li>
+<li><span>When next time browser sends any request to web server then it sends those cookies information to the server and server uses that information to identify the user.</span></li>
+</ul><h3 id="Setting-Cookies-with-PHP" data-id="Setting-Cookies-with-PHP"><a class="anchor hidden-xs" href="#Setting-Cookies-with-PHP" title="Setting-Cookies-with-PHP"><span class="octicon octicon-link"></span></a><span>Setting Cookies with PHP</span></h3><p><span>The </span><code>setcookie()</code><span> function is used to set a cookie in PHP.</span></p><p><strong><span>Syntax</span></strong></p><pre><code class="php hljs">setcookie(name, value, expire, path, domain, security);
+</code></pre><p><a href="https://www.notion.so/d1f74007885148b1afecedba053a6c13" target="_blank" rel="noopener"><span>Parameters</span></a></p><blockquote>
+<p><span>Make sure you call the </span><code>setcookie()</code><span> function before any output generated by your script otherwise cookie will not set.</span></p>
+</blockquote><p><span>Example 8.1</span></p><pre><code class="php hljs">&lt;?php
+    $name = "John";
+    setcookie("user_name", $name, strtotime('+10 minute'));
+?&gt;
+&lt;html&gt;
+   
+   &lt;head&gt;
+      &lt;title&gt;Setting Cookies with PHP&lt;/title&gt;
+   &lt;/head&gt;
+   
+   &lt;body&gt;
+      &lt;?php echo "Set Cookies"; ?&gt;
+   &lt;/body&gt;
+   
+&lt;/html&gt;
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title&lt;/title&gt;
+        &lt;!-- Required meta tags --&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+        &lt;!-- Bootstrap CSS --&gt;
+        &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="container mt-3"&gt;
+            &lt;h2&gt;Set Cookie&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;!-- Optional JavaScript --&gt;
+    &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+    &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><span>Output</span></p><pre><code class="html hljs"><span class="hljs-keyword">Set</span> Cookie
+<span class="hljs-keyword">Key</span>: <span class="hljs-string">'user_name'</span>
+<span class="hljs-keyword">Value</span>: John
+</code></pre><blockquote>
+<p><span>If the expiration time of the cookie is set to 0, or omitted, the cookie will expire at the end of the session i.e. when the browser closes.</span></p>
+</blockquote><h3 id="Accessing-Cookies-Values" data-id="Accessing-Cookies-Values"><a class="anchor hidden-xs" href="#Accessing-Cookies-Values" title="Accessing-Cookies-Values"><span class="octicon octicon-link"></span></a><span>Accessing Cookies Values</span></h3><p><span>The PHP </span><code>$_COOKIE</code><span> superglobal variable is used to retrieve a cookie value. It typically an associative array that contains a list of all the cookies values sent by the browser in the current request, keyed by cookie name. The individual cookie value can be accessed using standard array notation, for example to display the username cookie set in the previous example, you could use the following code.</span></p><p><span>Example 8.2</span></p><pre><code class="php hljs">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title&lt;/title&gt;
+        &lt;!-- Required meta tags --&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+        &lt;!-- Bootstrap CSS --&gt;
+        &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="container mt-3"&gt;
+            &lt;h2&gt;Accessing Cookie&lt;/h2&gt;
+            &lt;p&gt;Key: 'user_name'&lt;/p&gt;
+            &lt;p&gt;Value: '&lt;?php if( isset( $_COOKIE['user_name'] ) ){ echo $_COOKIE['user_name']; } ?&gt;'&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;!-- Optional JavaScript --&gt;
+    &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+    &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><span>Output</span></p><pre><code class="html hljs"><span class="hljs-attribute">Accessing</span> Cookie
+Key: <span class="hljs-string">'user_name'</span>
+Value: John
+</code></pre></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -1178,33 +1303,39 @@ Your email is john.doe@gmail.com
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
 <li><a href="#Syntax-eg1" title="Syntax eg.1">Syntax eg.1</a></li>
-<li class=""><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
-<li class=""><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
-<li class=""><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
+<li><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
+<li><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
+<li><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
 </ul>
 </li>
-<li class=""><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
-<li class=""><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
-<li class=""><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
+<li><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
+<li><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
+<li><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
 </ul>
 </li>
-<li class=""><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
-<li class=""><a href="#For-Loop" title="For Loop">For Loop</a></li>
-<li class=""><a href="#While-Loop" title="While Loop">While Loop</a></li>
-<li class=""><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
-<li class=""><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
+<li><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
+<li><a href="#For-Loop" title="For Loop">For Loop</a></li>
+<li><a href="#While-Loop" title="While Loop">While Loop</a></li>
+<li><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
+<li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
 </ul>
 </li>
 <li class=""><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
-<li class=""><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
+<li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
 <li class=""><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
 </ul>
 </li>
 <li class=""><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
-<li><a href="#Time" title="Time">Time</a></li>
+<li class=""><a href="#Time" title="Time">Time</a></li>
 <li class=""><a href="#Date" title="Date">Date</a></li>
 <li class=""><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
 <li class=""><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
+</ul>
+</li>
+<li class=""><a href="#PHP-Include-eg7" title="PHP Include eg.7">PHP Include eg.7</a></li>
+<li class=""><a href="#PHP-Cookies-eg8" title="PHP Cookies eg.8">PHP Cookies eg.8</a><ul class="nav">
+<li class=""><a href="#Setting-Cookies-with-PHP" title="Setting Cookies with PHP">Setting Cookies with PHP</a></li>
+<li class=""><a href="#Accessing-Cookies-Values" title="Accessing Cookies Values">Accessing Cookies Values</a></li>
 </ul>
 </li>
 </ul>
@@ -1217,34 +1348,40 @@ Your email is john.doe@gmail.com
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
-<li class=""><a href="#Syntax-eg1" title="Syntax eg.1">Syntax eg.1</a></li>
-<li class=""><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
-<li class=""><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
-<li class=""><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
+<li><a href="#Syntax-eg1" title="Syntax eg.1">Syntax eg.1</a></li>
+<li><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
+<li><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
+<li><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
 </ul>
 </li>
-<li class=""><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
-<li class=""><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
-<li class=""><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
+<li><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
+<li><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
+<li><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
 </ul>
 </li>
-<li class=""><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
-<li class=""><a href="#For-Loop" title="For Loop">For Loop</a></li>
-<li class=""><a href="#While-Loop" title="While Loop">While Loop</a></li>
-<li class=""><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
-<li class=""><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
+<li><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
+<li><a href="#For-Loop" title="For Loop">For Loop</a></li>
+<li><a href="#While-Loop" title="While Loop">While Loop</a></li>
+<li><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
+<li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
 </ul>
 </li>
 <li class=""><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
-<li class=""><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
+<li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
 <li class=""><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
 </ul>
 </li>
 <li class=""><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
-<li><a href="#Time" title="Time">Time</a></li>
+<li class=""><a href="#Time" title="Time">Time</a></li>
 <li class=""><a href="#Date" title="Date">Date</a></li>
 <li class=""><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
 <li class=""><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
+</ul>
+</li>
+<li class=""><a href="#PHP-Include-eg7" title="PHP Include eg.7">PHP Include eg.7</a></li>
+<li class=""><a href="#PHP-Cookies-eg8" title="PHP Cookies eg.8">PHP Cookies eg.8</a><ul class="nav">
+<li class=""><a href="#Setting-Cookies-with-PHP" title="Setting Cookies with PHP">Setting Cookies with PHP</a></li>
+<li class=""><a href="#Accessing-Cookies-Values" title="Accessing Cookies Values">Accessing Cookies Values</a></li>
 </ul>
 </li>
 </ul>
