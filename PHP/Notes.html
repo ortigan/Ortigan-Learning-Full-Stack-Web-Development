@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="Syntax-eg1" data-id="Syntax-eg1"><a class="anchor hidden-xs" href="#Syntax-eg1" title="Syntax-eg1"><span class="octicon octicon-link"></span></a><span>Syntax eg.1</span></h2><p><span>A PHP script can be placed anywhere in the document.</span></p><p><span>A PHP script starts with </span>&lt;?php and ends with ?&gt;<span>:</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="Syntax-eg1" data-id="Syntax-eg1"><a class="anchor hidden-xs" href="#Syntax-eg1" title="Syntax-eg1"><span class="octicon octicon-link"></span></a><span>Syntax eg.1</span></h2><p><span>A PHP script can be placed anywhere in the document.</span></p><p><span>A PHP script starts with </span>&lt;?php and ends with ?&gt;<span>:</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
 <span class="hljs-comment">// PHP code goes here</span>
 <span class="hljs-meta">?&gt;</span>
 </code></pre><p><span>PHP files are saved with .php extension</span></p><p><span>Basic “Hello World” program</span></p><p><span>Example 1.1</span></p><pre><code class="php hljs">&lt;!DOCTYPE html&gt;
@@ -301,7 +301,874 @@ Your email is john.doe@gmail.com
 <span class="hljs-meta">?&gt;</span>
 </code></pre><p><span>Output</span></p><pre><code class="bash hljs">Hello John Doe
 Your email is john.doe@gmail.com
-</code></pre></div>
+</code></pre><h2 id="PHP-Date-and-Time-eg6" data-id="PHP-Date-and-Time-eg6"><a class="anchor hidden-xs" href="#PHP-Date-and-Time-eg6" title="PHP-Date-and-Time-eg6"><span class="octicon octicon-link"></span></a><span>PHP Date and Time eg.6</span></h2><h3 id="Time" data-id="Time"><a class="anchor hidden-xs" href="#Time" title="Time"><span class="octicon octicon-link"></span></a><span>Time</span></h3><p><span>PHP’s </span><code>time()</code><span> function gives you all the information that you need about the current date and time. It requires no arguments but returns an integer.</span></p><p><span>The integer returned by </span><code>time()</code><span> represents the number of seconds elapsed since midnight GMT on January 1, 1970. This moment is known as the </span><strong><span>UNIX epoch</span></strong><span>, and the number of seconds that have elapsed since then is referred to as a timestamp.</span></p><p><span>Example 6.1</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+   <span class="hljs-keyword">echo</span> time();
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs">1601018121
+</code></pre><h3 id="Date" data-id="Date"><a class="anchor hidden-xs" href="#Date" title="Date"><span class="octicon octicon-link"></span></a><span>Date</span></h3><p><span>PHP </span><code>date()</code><span> function converts a timestamp to a format that is readable and more understandable to humans.</span></p><p><strong><span>Syntax</span></strong></p><pre><code class="php hljs">date(format,timestamp)
+</code></pre><p><a href="https://www.notion.so/375e8f89fabe49cba59460fdcff68e7a" target="_blank" rel="noopener"><span>Parameters</span></a></p><p><strong><span>Formatting options available in date() function</span></strong><span>: The format parameter of the date() function is a string that can contain multiple characters allowing to generate dates in various formats.</span></p><p><span>Date-related formatting characters that are commonly used in format string:</span></p><ul>
+<li><span>d – Represents day of the month; two digits with leading zeros (01 or 31).</span></li>
+<li><span>D – Represents day of the week in text as an abbreviation (Mon to Sun).</span></li>
+<li><span>m – Represents month in numbers with leading zeros (01 or 12).</span></li>
+<li><span>M – Represents month in text, abbreviated (Jan to Dec).</span></li>
+<li><span>y – Represents year in two digits (08 or 14).</span></li>
+<li><span>Y – Represents year in four digits (2008 or 2014).</span></li>
+<li><span>The parts of the date can be separated by inserting other characters, like hyphens (-), dots (.), slashes (/), or spaces to add additional visual formatting.</span></li>
+</ul><p><span>Example 6.2</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Today is "</span> . date(<span class="hljs-string">"d-m-Y"</span>);
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs">Today <span class="hljs-keyword">is</span> <span class="hljs-number">24</span><span class="hljs-number">-09</span><span class="hljs-number">-2020</span>
+</code></pre><p><span>The following characters can be used along with date() function to format the time string:</span></p><ul>
+<li><span>h – Represents hour in 12-hour format with leading zeros (01 to 12).</span></li>
+<li><span>H – Represents hour in in 24-hour format with leading zeros (00 to 23).</span></li>
+<li><span>i – Represents minutes with leading zeros (00 to 59).</span></li>
+<li><span>s – Represents seconds with leading zeros (00 to 59).</span></li>
+<li><span>a – Represents lowercase ante meridian and post meridian (am or pm).</span></li>
+<li><span>A – Represents uppercase ante meridian and post meridian (AM or PM).</span></li>
+</ul><p><span>Example 6.3</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Time is "</span> . date(<span class="hljs-string">"H:i:sa"</span>);
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs"><span class="hljs-selector-tag">Time</span> <span class="hljs-selector-tag">is</span> 12<span class="hljs-selector-pseudo">:53</span><span class="hljs-selector-pseudo">:47pm</span>
+</code></pre><h3 id="Get-Your-Time-Zone" data-id="Get-Your-Time-Zone"><a class="anchor hidden-xs" href="#Get-Your-Time-Zone" title="Get-Your-Time-Zone"><span class="octicon octicon-link"></span></a><span>Get Your Time Zone</span></h3><p><span>If the time you got back from the code is not correct, it’s probably because your server is in another country or set up for a different time zone.</span></p><p><span>So, if you need the time to be correct according to a specific location, you can set the time zone you want to use.</span></p><p><span>Example 6.4</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+	date_default_timezone_set(<span class="hljs-string">'Asia/Kolkata'</span>);
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">"The time is "</span> . date(<span class="hljs-string">"h:i:sa"</span>);
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs"><span class="hljs-selector-tag">The</span> <span class="hljs-selector-tag">Time</span> <span class="hljs-selector-tag">is</span> 13<span class="hljs-selector-pseudo">:06</span><span class="hljs-selector-pseudo">:29pm</span>
+</code></pre><h3 id="PHP-Timezones" data-id="PHP-Timezones"><a class="anchor hidden-xs" href="#PHP-Timezones" title="PHP-Timezones"><span class="octicon octicon-link"></span></a><span>PHP Timezones</span></h3><p><strong><span>Africa</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Africa/Abidjan</span></td>
+<td><span>Africa/Accra</span></td>
+<td><span>Africa/Addis_Ababa</span></td>
+<td><span>Africa/Algiers</span></td>
+</tr>
+<tr>
+<td><span>Africa/Asmara</span></td>
+<td><span>Africa/Bamako</span></td>
+<td><span>Africa/Bangui</span></td>
+<td><span>Africa/Banjul</span></td>
+</tr>
+<tr>
+<td><span>Africa/Bissau</span></td>
+<td><span>Africa/Blantyre</span></td>
+<td><span>Africa/Brazzaville</span></td>
+<td><span>Africa/Bujumbura</span></td>
+</tr>
+<tr>
+<td><span>Africa/Cairo</span></td>
+<td><span>Africa/Casablanca</span></td>
+<td><span>Africa/Ceuta</span></td>
+<td><span>Africa/Conakry</span></td>
+</tr>
+<tr>
+<td><span>Africa/Dakar</span></td>
+<td><span>Africa/Dar_es_Salaam</span></td>
+<td><span>Africa/Djibouti</span></td>
+<td><span>Africa/Douala</span></td>
+</tr>
+<tr>
+<td><span>Africa/El_Aaiun</span></td>
+<td><span>Africa/Freetown</span></td>
+<td><span>Africa/Gaborone</span></td>
+<td><span>Africa/Harare</span></td>
+</tr>
+<tr>
+<td><span>Africa/Johannesburg</span></td>
+<td><span>Africa/Juba</span></td>
+<td><span>Africa/Kampala</span></td>
+<td><span>Africa/Khartoum</span></td>
+</tr>
+<tr>
+<td><span>Africa/Kigali</span></td>
+<td><span>Africa/Kinshasa</span></td>
+<td><span>Africa/Lagos</span></td>
+<td><span>Africa/Libreville</span></td>
+</tr>
+<tr>
+<td><span>Africa/Lome</span></td>
+<td><span>Africa/Luanda</span></td>
+<td><span>Africa/Lubumbashi</span></td>
+<td><span>Africa/Lusaka</span></td>
+</tr>
+<tr>
+<td><span>Africa/Malabo</span></td>
+<td><span>Africa/Maputo</span></td>
+<td><span>Africa/Maseru</span></td>
+<td><span>Africa/Mbabane</span></td>
+</tr>
+<tr>
+<td><span>Africa/Mogadishu</span></td>
+<td><span>Africa/Monrovia</span></td>
+<td><span>Africa/Nairobi</span></td>
+<td><span>Africa/Ndjamena</span></td>
+</tr>
+<tr>
+<td><span>Africa/Niamey</span></td>
+<td><span>Africa/Nouakchott</span></td>
+<td><span>Africa/Ouagadougou</span></td>
+<td><span>Africa/Porto-Novo</span></td>
+</tr>
+<tr>
+<td><span>Africa/Sao_Tome</span></td>
+<td><span>Africa/Tripoli</span></td>
+<td><span>Africa/Tunis</span></td>
+<td><span>Africa/Windhoek</span></td>
+</tr>
+</tbody>
+</table><p><strong><span>America</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>America/Adak</span></td>
+<td><span>America/Anchorage</span></td>
+<td><span>America/Anguilla</span></td>
+</tr>
+<tr>
+<td><span>America/Antigua</span></td>
+<td><span>America/Araguaina</span></td>
+<td><span>America/Argentina/Buenos_Aires</span></td>
+</tr>
+<tr>
+<td><span>America/Argentina/Catamarca</span></td>
+<td><span>America/Argentina/ComodRivadavia</span></td>
+<td><span>America/Argentina/Cordoba</span></td>
+</tr>
+<tr>
+<td><span>America/Argentina/Jujuy</span></td>
+<td><span>America/Argentina/La_Rioja</span></td>
+<td><span>America/Argentina/Mendoza</span></td>
+</tr>
+<tr>
+<td><span>America/Argentina/Rio_Gallegos</span></td>
+<td><span>America/Argentina/Salta</span></td>
+<td><span>America/Argentina/San_Juan</span></td>
+</tr>
+<tr>
+<td><span>America/Argentina/San_Luis</span></td>
+<td><span>America/Argentina/Tucuman</span></td>
+<td><span>America/Argentina/Ushuaia</span></td>
+</tr>
+<tr>
+<td><span>America/Aruba</span></td>
+<td><span>America/Asuncion</span></td>
+<td><span>America/Atikokan</span></td>
+</tr>
+<tr>
+<td><span>America/Atka</span></td>
+<td><span>America/Bahia</span></td>
+<td><span>America/Bahia_Banderas</span></td>
+</tr>
+<tr>
+<td><span>America/Barbados</span></td>
+<td><span>America/Belem</span></td>
+<td><span>America/Belize</span></td>
+</tr>
+<tr>
+<td><span>America/Blanc-Sablon</span></td>
+<td><span>America/Boa_Vista</span></td>
+<td><span>America/Bogota</span></td>
+</tr>
+<tr>
+<td><span>America/Boise</span></td>
+<td><span>America/Buenos_Aires</span></td>
+<td><span>America/Cambridge_Bay</span></td>
+</tr>
+<tr>
+<td><span>America/Campo_Grande</span></td>
+<td><span>America/Cancun</span></td>
+<td><span>America/Caracas</span></td>
+</tr>
+<tr>
+<td><span>America/Catamarca</span></td>
+<td><span>America/Cayenne</span></td>
+<td><span>America/Cayman</span></td>
+</tr>
+<tr>
+<td><span>America/Chicago</span></td>
+<td><span>America/Chihuahua</span></td>
+<td><span>America/Coral_Harbour</span></td>
+</tr>
+<tr>
+<td><span>America/Cordoba</span></td>
+<td><span>America/Costa_Rica</span></td>
+<td><span>America/Creston</span></td>
+</tr>
+<tr>
+<td><span>America/Cuiaba</span></td>
+<td><span>America/Curacao</span></td>
+<td><span>America/Danmarkshavn</span></td>
+</tr>
+<tr>
+<td><span>America/Dawson</span></td>
+<td><span>America/Dawson_Creek</span></td>
+<td><span>America/Denver</span></td>
+</tr>
+<tr>
+<td><span>America/Detroit</span></td>
+<td><span>America/Dominica</span></td>
+<td><span>America/Edmonton</span></td>
+</tr>
+<tr>
+<td><span>America/Eirunepe</span></td>
+<td><span>America/El_Salvador</span></td>
+<td><span>America/Ensenada</span></td>
+</tr>
+<tr>
+<td><span>America/Fort_Wayne</span></td>
+<td><span>America/Fortaleza</span></td>
+<td><span>America/Glace_Bay</span></td>
+</tr>
+<tr>
+<td><span>America/Godthab</span></td>
+<td><span>America/Goose_Bay</span></td>
+<td><span>America/Grand_Turk</span></td>
+</tr>
+<tr>
+<td><span>America/Grenada</span></td>
+<td><span>America/Guadeloupe</span></td>
+<td><span>America/Guatemala</span></td>
+</tr>
+<tr>
+<td><span>America/Guayaquil</span></td>
+<td><span>America/Guyana</span></td>
+<td><span>America/Halifax</span></td>
+</tr>
+<tr>
+<td><span>America/Havana</span></td>
+<td><span>America/Hermosillo</span></td>
+<td><span>America/Indiana/Indianapolis</span></td>
+</tr>
+<tr>
+<td><span>America/Indiana/Knox</span></td>
+<td><span>America/Indiana/Marengo</span></td>
+<td><span>America/Indiana/Petersburg</span></td>
+</tr>
+<tr>
+<td><span>America/Indiana/Tell_City</span></td>
+<td><span>America/Indiana/Vevay</span></td>
+<td><span>America/Indiana/Vincennes</span></td>
+</tr>
+<tr>
+<td><span>America/Indiana/Winamac</span></td>
+<td><span>America/Indianapolis</span></td>
+<td><span>America/Inuvik</span></td>
+</tr>
+<tr>
+<td><span>America/Iqaluit</span></td>
+<td><span>America/Jamaica</span></td>
+<td><span>America/Jujuy</span></td>
+</tr>
+<tr>
+<td><span>America/Juneau</span></td>
+<td><span>America/Kentucky/Louisville</span></td>
+<td><span>America/Kentucky/Monticello</span></td>
+</tr>
+<tr>
+<td><span>America/Knox_IN</span></td>
+<td><span>America/Kralendijk</span></td>
+<td><span>America/La_Paz</span></td>
+</tr>
+<tr>
+<td><span>America/Lima</span></td>
+<td><span>America/Los_Angeles</span></td>
+<td><span>America/Louisville</span></td>
+</tr>
+<tr>
+<td><span>America/Lower_Princes</span></td>
+<td><span>America/Maceio</span></td>
+<td><span>America/Managua</span></td>
+</tr>
+<tr>
+<td><span>America/Manaus</span></td>
+<td><span>America/Marigot</span></td>
+<td><span>America/Martinique</span></td>
+</tr>
+<tr>
+<td><span>America/Matamoros</span></td>
+<td><span>America/Mazatlan</span></td>
+<td><span>America/Mendoza</span></td>
+</tr>
+<tr>
+<td><span>America/Menominee</span></td>
+<td><span>America/Merida</span></td>
+<td><span>America/Metlakatla</span></td>
+</tr>
+<tr>
+<td><span>America/Mexico_City</span></td>
+<td><span>America/Miquelon</span></td>
+<td><span>America/Moncton</span></td>
+</tr>
+<tr>
+<td><span>America/Monterrey</span></td>
+<td><span>America/Montevideo</span></td>
+<td><span>America/Montreal</span></td>
+</tr>
+<tr>
+<td><span>America/Montserrat</span></td>
+<td><span>America/Nassau</span></td>
+<td><span>America/New_York</span></td>
+</tr>
+<tr>
+<td><span>America/Nipigon</span></td>
+<td><span>America/Nome</span></td>
+<td><span>America/Noronha</span></td>
+</tr>
+<tr>
+<td><span>America/North_Dakota/Beulah</span></td>
+<td><span>America/North_Dakota/Center</span></td>
+<td><span>America/North_Dakota/New_Salem</span></td>
+</tr>
+<tr>
+<td><span>America/Ojinaga</span></td>
+<td><span>America/Panama</span></td>
+<td><span>America/Pangnirtung</span></td>
+</tr>
+<tr>
+<td><span>America/Paramaribo</span></td>
+<td><span>America/Phoenix</span></td>
+<td><span>America/Port-au-Prince</span></td>
+</tr>
+<tr>
+<td><span>America/Port_of_Spain</span></td>
+<td><span>America/Porto_Acre</span></td>
+<td><span>America/Porto_Velho</span></td>
+</tr>
+<tr>
+<td><span>America/Puerto_Rico</span></td>
+<td><span>America/Rainy_River</span></td>
+<td><span>America/Rankin_Inlet</span></td>
+</tr>
+<tr>
+<td><span>America/Recife</span></td>
+<td><span>America/Regina</span></td>
+<td><span>America/Resolute</span></td>
+</tr>
+<tr>
+<td><span>America/Rio_Branco</span></td>
+<td><span>America/Rosario</span></td>
+<td><span>America/Santa_Isabel</span></td>
+</tr>
+<tr>
+<td><span>America/Santarem</span></td>
+<td><span>America/Santiago</span></td>
+<td><span>America/Santo_Domingo</span></td>
+</tr>
+<tr>
+<td><span>America/Sao_Paulo</span></td>
+<td><span>America/Scoresbysund</span></td>
+<td><span>America/Shiprock</span></td>
+</tr>
+<tr>
+<td><span>America/Sitka</span></td>
+<td><span>America/St_Barthelemy</span></td>
+<td><span>America/St_Johns</span></td>
+</tr>
+<tr>
+<td><span>America/St_Kitts</span></td>
+<td><span>America/St_Lucia</span></td>
+<td><span>America/St_Thomas</span></td>
+</tr>
+<tr>
+<td><span>America/St_Vincent</span></td>
+<td><span>America/Swift_Current</span></td>
+<td><span>America/Tegucigalpa</span></td>
+</tr>
+<tr>
+<td><span>America/Thule</span></td>
+<td><span>America/Thunder_Bay</span></td>
+<td><span>America/Tijuana</span></td>
+</tr>
+<tr>
+<td><span>America/Toronto</span></td>
+<td><span>America/Tortola</span></td>
+<td><span>America/Vancouver</span></td>
+</tr>
+<tr>
+<td><span>America/Virgin</span></td>
+<td><span>America/Whitehorse</span></td>
+<td><span>America/Winnipeg</span></td>
+</tr>
+<tr>
+<td><span>America/Yakutat</span></td>
+<td><span>America/Yellowknife</span></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong><span>Antartica</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Antarctica/Casey</span></td>
+<td><span>Antarctica/Davis</span></td>
+<td><span>Antarctica/DumontDUrville</span></td>
+<td><span>Antarctica/Macquarie</span></td>
+</tr>
+<tr>
+<td><span>Antarctica/Vostok</span></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong><span>Artic</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Arctic/Longyearbyen</span></td>
+</tr>
+</tbody>
+</table><p><strong><span>Asia</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+<th><span>Column 5</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Asia/Aden</span></td>
+<td><span>Asia/Almaty</span></td>
+<td><span>Asia/Amman</span></td>
+<td><span>Asia/Anadyr</span></td>
+<td><span>Asia/Aqtau</span></td>
+</tr>
+<tr>
+<td><span>Asia/Aqtobe</span></td>
+<td><span>Asia/Ashgabat</span></td>
+<td><span>Asia/Ashkhabad</span></td>
+<td><span>Asia/Baghdad</span></td>
+<td><span>Asia/Bahrain</span></td>
+</tr>
+<tr>
+<td><span>Asia/Baku</span></td>
+<td><span>Asia/Bangkok</span></td>
+<td><span>Asia/Beirut</span></td>
+<td><span>Asia/Bishkek</span></td>
+<td><span>Asia/Brunei</span></td>
+</tr>
+<tr>
+<td><span>Asia/Calcutta</span></td>
+<td><span>Asia/Choibalsan</span></td>
+<td><span>Asia/Chongqing</span></td>
+<td><span>Asia/Chungking</span></td>
+<td><span>Asia/Colombo</span></td>
+</tr>
+<tr>
+<td><span>Asia/Dacca</span></td>
+<td><span>Asia/Damascus</span></td>
+<td><span>Asia/Dhaka</span></td>
+<td><span>Asia/Dili</span></td>
+<td><span>Asia/Dubai</span></td>
+</tr>
+<tr>
+<td><span>Asia/Dushanbe</span></td>
+<td><span>Asia/Gaza</span></td>
+<td><span>Asia/Harbin</span></td>
+<td><span>Asia/Hebron</span></td>
+<td><span>Asia/Ho_Chi_Minh</span></td>
+</tr>
+<tr>
+<td><span>Asia/Hong_Kong</span></td>
+<td><span>Asia/Hovd</span></td>
+<td><span>Asia/Irkutsk</span></td>
+<td><span>Asia/Istanbul</span></td>
+<td><span>Asia/Jakarta</span></td>
+</tr>
+<tr>
+<td><span>Asia/Jayapura</span></td>
+<td><span>Asia/Jerusalem</span></td>
+<td><span>Asia/Kabul</span></td>
+<td><span>Asia/Kamchatka</span></td>
+<td><span>Asia/Karachi</span></td>
+</tr>
+<tr>
+<td><span>Asia/Kashgar</span></td>
+<td><span>Asia/Kathmandu</span></td>
+<td><span>Asia/Katmandu</span></td>
+<td><span>Asia/Khandyga</span></td>
+<td><span>Asia/Kolkata</span></td>
+</tr>
+<tr>
+<td><span>Asia/Krasnoyarsk</span></td>
+<td><span>Asia/Kuala_Lumpur</span></td>
+<td><span>Asia/Kuching</span></td>
+<td><span>Asia/Kuwait</span></td>
+<td><span>Asia/Macao</span></td>
+</tr>
+<tr>
+<td><span>Asia/Macau</span></td>
+<td><span>Asia/Magadan</span></td>
+<td><span>Asia/Makassar</span></td>
+<td><span>Asia/Manila</span></td>
+<td><span>Asia/Muscat</span></td>
+</tr>
+<tr>
+<td><span>Asia/Nicosia</span></td>
+<td><span>Asia/Novokuznetsk</span></td>
+<td><span>Asia/Novosibirsk</span></td>
+<td><span>Asia/Omsk</span></td>
+<td><span>Asia/Oral</span></td>
+</tr>
+<tr>
+<td><span>Asia/Phnom_Penh</span></td>
+<td><span>Asia/Pontianak</span></td>
+<td><span>Asia/Pyongyang</span></td>
+<td><span>Asia/Qatar</span></td>
+<td><span>Asia/Qyzylorda</span></td>
+</tr>
+<tr>
+<td><span>Asia/Rangoon</span></td>
+<td><span>Asia/Riyadh</span></td>
+<td><span>Asia/Saigon</span></td>
+<td><span>Asia/Sakhalin</span></td>
+<td><span>Asia/Samarkand</span></td>
+</tr>
+<tr>
+<td><span>Asia/Seoul</span></td>
+<td><span>Asia/Shanghai</span></td>
+<td><span>Asia/Singapore</span></td>
+<td><span>Asia/Taipei</span></td>
+<td><span>Asia/Tashkent</span></td>
+</tr>
+<tr>
+<td><span>Asia/Tbilisi</span></td>
+<td><span>Asia/Tehran</span></td>
+<td><span>Asia/Tel_Aviv</span></td>
+<td><span>Asia/Thimbu</span></td>
+<td><span>Asia/Thimphu</span></td>
+</tr>
+<tr>
+<td><span>Asia/Tokyo</span></td>
+<td><span>Asia/Ujung_Pandang</span></td>
+<td><span>Asia/Ulaanbaatar</span></td>
+<td><span>Asia/Ulan_Bator</span></td>
+<td><span>Asia/Urumqi</span></td>
+</tr>
+<tr>
+<td><span>Asia/Ust-Nera</span></td>
+<td><span>Asia/Vientiane</span></td>
+<td><span>Asia/Vladivostok</span></td>
+<td><span>Asia/Yakutsk</span></td>
+<td><span>Asia/Yekaterinburg</span></td>
+</tr>
+<tr>
+<td><span>Asia/Yerevan</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong><span>Atlantic</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Atlantic/Azores</span></td>
+<td><span>Atlantic/Bermuda</span></td>
+<td><span>Atlantic/Canary</span></td>
+</tr>
+<tr>
+<td><span>Atlantic/Cape_Verde</span></td>
+<td><span>Atlantic/Faeroe</span></td>
+<td><span>Atlantic/Faroe</span></td>
+</tr>
+<tr>
+<td><span>Atlantic/Jan_Mayen</span></td>
+<td><span>Atlantic/Madeira</span></td>
+<td><span>Atlantic/Reykjavik</span></td>
+</tr>
+<tr>
+<td><span>Atlantic/South_Georgia</span></td>
+<td><span>Atlantic/St_Helena</span></td>
+<td><span>Atlantic/Stanley</span></td>
+</tr>
+</tbody>
+</table><p><strong><span>Australia</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+<th><span>Column 5</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Australia/ACT</span></td>
+<td><span>Australia/Adelaide</span></td>
+<td><span>Australia/Brisbane</span></td>
+<td><span>Australia/Broken_Hill</span></td>
+<td><span>Australia/Canberra</span></td>
+</tr>
+<tr>
+<td><span>Australia/Currie</span></td>
+<td><span>Australia/Darwin</span></td>
+<td><span>Australia/Eucla</span></td>
+<td><span>Australia/Hobart</span></td>
+<td><span>Australia/LHI</span></td>
+</tr>
+<tr>
+<td><span>Australia/Lindeman</span></td>
+<td><span>Australia/Lord_Howe</span></td>
+<td><span>Australia/Melbourne</span></td>
+<td><span>Australia/North</span></td>
+<td><span>Australia/NSW</span></td>
+</tr>
+<tr>
+<td><span>Australia/Perth</span></td>
+<td><span>Australia/Queensland</span></td>
+<td><span>Australia/South</span></td>
+<td><span>Australia/Sydney</span></td>
+<td><span>Australia/Tasmania</span></td>
+</tr>
+<tr>
+<td><span>Australia/Victoria</span></td>
+<td><span>Australia/West</span></td>
+<td><span>Australia/Yancowinna</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong><span>Europe</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+<th><span>Column 5</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Europe/Amsterdam</span></td>
+<td><span>Europe/Andorra</span></td>
+<td><span>Europe/Athens</span></td>
+<td><span>Europe/Belfast</span></td>
+<td><span>Europe/Belgrade</span></td>
+</tr>
+<tr>
+<td><span>Europe/Berlin</span></td>
+<td><span>Europe/Bratislava</span></td>
+<td><span>Europe/Brussels</span></td>
+<td><span>Europe/Bucharest</span></td>
+<td><span>Europe/Budapest</span></td>
+</tr>
+<tr>
+<td><span>Europe/Busingen</span></td>
+<td><span>Europe/Chisinau</span></td>
+<td><span>Europe/Copenhagen</span></td>
+<td><span>Europe/Dublin</span></td>
+<td><span>Europe/Gibraltar</span></td>
+</tr>
+<tr>
+<td><span>Europe/Guernsey</span></td>
+<td><span>Europe/Helsinki</span></td>
+<td><span>Europe/Isle_of_Man</span></td>
+<td><span>Europe/Istanbul</span></td>
+<td><span>Europe/Jersey</span></td>
+</tr>
+<tr>
+<td><span>Europe/Kaliningrad</span></td>
+<td><span>Europe/Kiev</span></td>
+<td><span>Europe/Lisbon</span></td>
+<td><span>Europe/Ljubljana</span></td>
+<td><span>Europe/London</span></td>
+</tr>
+<tr>
+<td><span>Europe/Luxembourg</span></td>
+<td><span>Europe/Madrid</span></td>
+<td><span>Europe/Malta</span></td>
+<td><span>Europe/Mariehamn</span></td>
+<td><span>Europe/Minsk</span></td>
+</tr>
+<tr>
+<td><span>Europe/Monaco</span></td>
+<td><span>Europe/Moscow</span></td>
+<td><span>Europe/Nicosia</span></td>
+<td><span>Europe/Oslo</span></td>
+<td><span>Europe/Paris</span></td>
+</tr>
+<tr>
+<td><span>Europe/Podgorica</span></td>
+<td><span>Europe/Prague</span></td>
+<td><span>Europe/Riga</span></td>
+<td><span>Europe/Rome</span></td>
+<td><span>Europe/Samara</span></td>
+</tr>
+<tr>
+<td><span>Europe/San_Marino</span></td>
+<td><span>Europe/Sarajevo</span></td>
+<td><span>Europe/Simferopol</span></td>
+<td><span>Europe/Skopje</span></td>
+<td><span>Europe/Sofia</span></td>
+</tr>
+<tr>
+<td><span>Europe/Stockholm</span></td>
+<td><span>Europe/Tallinn</span></td>
+<td><span>Europe/Tirane</span></td>
+<td><span>Europe/Tiraspol</span></td>
+<td><span>Europe/Uzhgorod</span></td>
+</tr>
+<tr>
+<td><span>Europe/Vaduz</span></td>
+<td><span>Europe/Vatican</span></td>
+<td><span>Europe/Vienna</span></td>
+<td><span>Europe/Vilnius</span></td>
+<td><span>Europe/Volgograd</span></td>
+</tr>
+<tr>
+<td><span>Europe/Warsaw</span></td>
+<td><span>Europe/Zagreb</span></td>
+<td><span>Europe/Zaporozhye</span></td>
+<td><span>Europe/Zurich</span></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong><span>Indian</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+<th><span>Column 5</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Indian/Antananarivo</span></td>
+<td><span>Indian/Chagos</span></td>
+<td><span>Indian/Christmas</span></td>
+<td><span>Indian/Cocos</span></td>
+<td><span>Indian/Comoro</span></td>
+</tr>
+<tr>
+<td><span>Indian/Kerguelen</span></td>
+<td><span>Indian/Mahe</span></td>
+<td><span>Indian/Maldives</span></td>
+<td><span>Indian/Mauritius</span></td>
+<td><span>Indian/Mayotte</span></td>
+</tr>
+<tr>
+<td><span>Indian/Reunion</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><p><strong><span>Pacific</span></strong></p><table>
+<thead>
+<tr>
+<th><span>Column 1</span></th>
+<th><span>Column 2</span></th>
+<th><span>Column 3</span></th>
+<th><span>Column 4</span></th>
+<th><span>Column 5</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>Pacific/Apia</span></td>
+<td><span>Pacific/Auckland</span></td>
+<td><span>Pacific/Chatham</span></td>
+<td><span>Pacific/Chuuk</span></td>
+<td><span>Pacific/Easter</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Efate</span></td>
+<td><span>Pacific/Enderbury</span></td>
+<td><span>Pacific/Fakaofo</span></td>
+<td><span>Pacific/Fiji</span></td>
+<td><span>Pacific/Funafuti</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Galapagos</span></td>
+<td><span>Pacific/Gambier</span></td>
+<td><span>Pacific/Guadalcanal</span></td>
+<td><span>Pacific/Guam</span></td>
+<td><span>Pacific/Honolulu</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Johnston</span></td>
+<td><span>Pacific/Kiritimati</span></td>
+<td><span>Pacific/Kosrae</span></td>
+<td><span>Pacific/Kwajalein</span></td>
+<td><span>Pacific/Majuro</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Marquesas</span></td>
+<td><span>Pacific/Midway</span></td>
+<td><span>Pacific/Nauru</span></td>
+<td><span>Pacific/Niue</span></td>
+<td><span>Pacific/Norfolk</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Noumea</span></td>
+<td><span>Pacific/Pago_Pago</span></td>
+<td><span>Pacific/Palau</span></td>
+<td><span>Pacific/Pitcairn</span></td>
+<td><span>Pacific/Pohnpei</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Ponape</span></td>
+<td><span>Pacific/Port_Moresby</span></td>
+<td><span>Pacific/Rarotonga</span></td>
+<td><span>Pacific/Saipan</span></td>
+<td><span>Pacific/Samoa</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Tahiti</span></td>
+<td><span>Pacific/Tarawa</span></td>
+<td><span>Pacific/Tongatapu</span></td>
+<td><span>Pacific/Truk</span></td>
+<td><span>Pacific/Wake</span></td>
+</tr>
+<tr>
+<td><span>Pacific/Wallis</span></td>
+<td><span>Pacific/Yap</span></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -311,26 +1178,33 @@ Your email is john.doe@gmail.com
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
 <li><a href="#Syntax-eg1" title="Syntax eg.1">Syntax eg.1</a></li>
-<li><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
-<li><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
-<li><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
+<li class=""><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
+<li class=""><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
+<li class=""><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
 </ul>
 </li>
-<li><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
-<li><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
-<li><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
+<li class=""><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
+<li class=""><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
+<li class=""><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
 </ul>
 </li>
 <li class=""><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
-<li><a href="#For-Loop" title="For Loop">For Loop</a></li>
-<li><a href="#While-Loop" title="While Loop">While Loop</a></li>
+<li class=""><a href="#For-Loop" title="For Loop">For Loop</a></li>
+<li class=""><a href="#While-Loop" title="While Loop">While Loop</a></li>
 <li class=""><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
-<li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
+<li class=""><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
 </ul>
 </li>
-<li><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
-<li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
-<li><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
+<li class=""><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
+<li class=""><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
+<li class=""><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
+</ul>
+</li>
+<li class=""><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
+<li><a href="#Time" title="Time">Time</a></li>
+<li class=""><a href="#Date" title="Date">Date</a></li>
+<li class=""><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
+<li class=""><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
 </ul>
 </li>
 </ul>
@@ -343,27 +1217,34 @@ Your email is john.doe@gmail.com
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
-<li><a href="#Syntax-eg1" title="Syntax eg.1">Syntax eg.1</a></li>
-<li><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
-<li><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
-<li><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
+<li class=""><a href="#Syntax-eg1" title="Syntax eg.1">Syntax eg.1</a></li>
+<li class=""><a href="#Variables-eg2" title="Variables eg.2">Variables eg.2</a><ul class="nav">
+<li class=""><a href="#Declaring-a-variable" title="Declaring a variable">Declaring a variable</a></li>
+<li class=""><a href="#Using-a-variable" title="Using a variable">Using a variable</a></li>
 </ul>
 </li>
-<li><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
-<li><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
-<li><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
+<li class=""><a href="#Strings-eg3" title="Strings eg.3">Strings eg.3</a><ul class="nav">
+<li class=""><a href="#strlen---returns-the-length-of-the-string" title="strlen() - returns the length of the string">strlen() - returns the length of the string</a></li>
+<li class=""><a href="#str_word_count---Count-Words-in-a-String" title="str_word_count() - Count Words in a String">str_word_count() - Count Words in a String</a></li>
 </ul>
 </li>
 <li class=""><a href="#Loops-eg4" title="Loops eg.4">Loops eg.4</a><ul class="nav">
-<li><a href="#For-Loop" title="For Loop">For Loop</a></li>
-<li><a href="#While-Loop" title="While Loop">While Loop</a></li>
+<li class=""><a href="#For-Loop" title="For Loop">For Loop</a></li>
+<li class=""><a href="#While-Loop" title="While Loop">While Loop</a></li>
 <li class=""><a href="#Foreach-Loop" title="Foreach Loop">Foreach Loop</a></li>
-<li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
+<li class=""><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
 </ul>
 </li>
-<li><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
-<li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
-<li><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
+<li class=""><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
+<li class=""><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
+<li class=""><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
+</ul>
+</li>
+<li class=""><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
+<li><a href="#Time" title="Time">Time</a></li>
+<li class=""><a href="#Date" title="Date">Date</a></li>
+<li class=""><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
+<li class=""><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
 </ul>
 </li>
 </ul>
