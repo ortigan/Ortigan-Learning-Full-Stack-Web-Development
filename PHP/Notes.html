@@ -1293,6 +1293,46 @@ Your email is john.doe@gmail.com
 </code></pre><p><span>Output</span></p><pre><code class="html hljs"><span class="hljs-attribute">Accessing</span> Cookie
 Key: <span class="hljs-string">'user_name'</span>
 Value: John
+</code></pre><h2 id="PHP-Session-eg9" data-id="PHP-Session-eg9"><a class="anchor hidden-xs" href="#PHP-Session-eg9" title="PHP-Session-eg9"><span class="octicon octicon-link"></span></a><span>PHP Session eg.9</span></h2><p><span>A session is a way to store information (in variables) to be used across multiple pages. Unlike a cookie, the information is not stored on the users computer.</span></p><p><span>When a session is started following things happen −</span></p><ul>
+<li><span>PHP first creates a unique identifier for that particular session which is a random string of 32 hexadecimal numbers such as 3c7foj34c3jj973hjkop2fc937e3443.</span></li>
+<li><span>A cookie called </span><strong><span>PHPSESSID</span></strong><span> is automatically sent to the user’s computer to store unique session identification string.</span></li>
+<li><span>A file is automatically created on the server in the designated temporary directory and bears the name of the unique identifier prefixed by sess_ ie sess_3c7foj34c3jj973hjkop2fc937e3443.</span></li>
+</ul><p><span>When a PHP script wants to retrieve the value from a session variable, PHP automatically gets the unique session identifier string from the PHPSESSID cookie and then looks in its temporary directory for the file bearing that name and a validation can be done by comparing both values.</span></p><h3 id="Starting-a-PHP-Session" data-id="Starting-a-PHP-Session"><a class="anchor hidden-xs" href="#Starting-a-PHP-Session" title="Starting-a-PHP-Session"><span class="octicon octicon-link"></span></a><span>Starting a PHP Session</span></h3><p><span>A PHP session is easily started by making a call to the </span><code>session_start()</code><span> function. This function first checks if a session is already started and if none is started then it starts one. It is recommended to put the call to </span><code>session_start()</code><span> at the beginning of the page.</span></p><p><span>Session variables are stored in associative array called </span><code>$_SESSION[]</code><span>. These variables can be accessed during lifetime of a session.</span></p><p><span>Example 9.1</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span> 
+
+	session_start();
+	
+	$_SESSION[<span class="hljs-string">'name'</span>] = <span class="hljs-string">"John"</span>;
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">'Session is set'</span>;
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs">Session <span class="hljs-keyword">is</span> <span class="hljs-keyword">set</span>
+</code></pre><h3 id="Accessing-Session-value" data-id="Accessing-Session-value"><a class="anchor hidden-xs" href="#Accessing-Session-value" title="Accessing-Session-value"><span class="octicon octicon-link"></span></a><span>Accessing Session value</span></h3><p><span>Now session is set so data in </span><code>$_SESSION</code><span> is accessible across the various pages of an entire website</span></p><p><span>Example 9.2</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+
+	session_start();
+
+	<span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_SESSION[<span class="hljs-string">'name'</span>] ) ){
+		<span class="hljs-keyword">echo</span> <span class="hljs-string">"My name is "</span> . $_SESSION[<span class="hljs-string">'name'</span>];
+	}
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><p><span>If session is set you will get the following output</span></p><pre><code class="html hljs">My name <span class="hljs-keyword">is</span> John
+</code></pre><h3 id="Destroying-a-PHP-Session" data-id="Destroying-a-PHP-Session"><a class="anchor hidden-xs" href="#Destroying-a-PHP-Session" title="Destroying-a-PHP-Session"><span class="octicon octicon-link"></span></a><span>Destroying a PHP Session</span></h3><p><span>A PHP session can be destroyed by </span><code>session_destroy()</code><span> function. This function does not need any argument and a single call can destroy all the session variables.</span></p><p><span>Example 9.3</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+
+	session_start();
+
+	session_destroy();
+
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">"All session values are destroyed"</span>;
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs"><span class="hljs-attribute">All</span> session values are destroyed
+</code></pre><p><span>If you want to destroy a single session variable then you can use </span><code>unset()</code><span> function to unset a session variable.</span></p><p><span>Example 9.4</span></p><pre><code class="php hljs"><span class="hljs-meta">&lt;?php</span>
+	session_start();
+
+	<span class="hljs-keyword">unset</span>($_SESSION[<span class="hljs-string">'name'</span>]);
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">'Session key "name" is destroyed'</span>;
+<span class="hljs-meta">?&gt;</span>
+</code></pre><p><span>Output</span></p><pre><code class="html hljs">Session key <span class="hljs-string">"name"</span> <span class="hljs-keyword">is</span> destroyed
 </code></pre></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
@@ -1320,22 +1360,28 @@ Value: John
 <li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
 </ul>
 </li>
-<li class=""><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
+<li><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
 <li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
-<li class=""><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
+<li><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
 </ul>
 </li>
-<li class=""><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
-<li class=""><a href="#Time" title="Time">Time</a></li>
-<li class=""><a href="#Date" title="Date">Date</a></li>
-<li class=""><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
-<li class=""><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
+<li><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
+<li><a href="#Time" title="Time">Time</a></li>
+<li><a href="#Date" title="Date">Date</a></li>
+<li><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
+<li><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
 </ul>
 </li>
-<li class=""><a href="#PHP-Include-eg7" title="PHP Include eg.7">PHP Include eg.7</a></li>
-<li class=""><a href="#PHP-Cookies-eg8" title="PHP Cookies eg.8">PHP Cookies eg.8</a><ul class="nav">
-<li class=""><a href="#Setting-Cookies-with-PHP" title="Setting Cookies with PHP">Setting Cookies with PHP</a></li>
-<li class=""><a href="#Accessing-Cookies-Values" title="Accessing Cookies Values">Accessing Cookies Values</a></li>
+<li><a href="#PHP-Include-eg7" title="PHP Include eg.7">PHP Include eg.7</a></li>
+<li><a href="#PHP-Cookies-eg8" title="PHP Cookies eg.8">PHP Cookies eg.8</a><ul class="nav">
+<li><a href="#Setting-Cookies-with-PHP" title="Setting Cookies with PHP">Setting Cookies with PHP</a></li>
+<li><a href="#Accessing-Cookies-Values" title="Accessing Cookies Values">Accessing Cookies Values</a></li>
+</ul>
+</li>
+<li><a href="#PHP-Session-eg9" title="PHP Session eg.9">PHP Session eg.9</a><ul class="nav">
+<li><a href="#Starting-a-PHP-Session" title="Starting a PHP Session">Starting a PHP Session</a></li>
+<li><a href="#Accessing-Session-value" title="Accessing Session value">Accessing Session value</a></li>
+<li><a href="#Destroying-a-PHP-Session" title="Destroying a PHP Session">Destroying a PHP Session</a></li>
 </ul>
 </li>
 </ul>
@@ -1366,22 +1412,28 @@ Value: John
 <li><a href="#Do-while-Loop" title="Do while Loop">Do while Loop</a></li>
 </ul>
 </li>
-<li class=""><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
+<li><a href="#Form-Handling-eg5" title="Form Handling eg.5">Form Handling eg.5</a><ul class="nav">
 <li><a href="#The-GET-Method" title="The GET Method">The GET Method</a></li>
-<li class=""><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
+<li><a href="#The-POST-Method" title="The POST Method">The POST Method</a></li>
 </ul>
 </li>
-<li class=""><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
-<li class=""><a href="#Time" title="Time">Time</a></li>
-<li class=""><a href="#Date" title="Date">Date</a></li>
-<li class=""><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
-<li class=""><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
+<li><a href="#PHP-Date-and-Time-eg6" title="PHP Date and Time eg.6">PHP Date and Time eg.6</a><ul class="nav">
+<li><a href="#Time" title="Time">Time</a></li>
+<li><a href="#Date" title="Date">Date</a></li>
+<li><a href="#Get-Your-Time-Zone" title="Get Your Time Zone">Get Your Time Zone</a></li>
+<li><a href="#PHP-Timezones" title="PHP Timezones">PHP Timezones</a></li>
 </ul>
 </li>
-<li class=""><a href="#PHP-Include-eg7" title="PHP Include eg.7">PHP Include eg.7</a></li>
-<li class=""><a href="#PHP-Cookies-eg8" title="PHP Cookies eg.8">PHP Cookies eg.8</a><ul class="nav">
-<li class=""><a href="#Setting-Cookies-with-PHP" title="Setting Cookies with PHP">Setting Cookies with PHP</a></li>
-<li class=""><a href="#Accessing-Cookies-Values" title="Accessing Cookies Values">Accessing Cookies Values</a></li>
+<li><a href="#PHP-Include-eg7" title="PHP Include eg.7">PHP Include eg.7</a></li>
+<li><a href="#PHP-Cookies-eg8" title="PHP Cookies eg.8">PHP Cookies eg.8</a><ul class="nav">
+<li><a href="#Setting-Cookies-with-PHP" title="Setting Cookies with PHP">Setting Cookies with PHP</a></li>
+<li><a href="#Accessing-Cookies-Values" title="Accessing Cookies Values">Accessing Cookies Values</a></li>
+</ul>
+</li>
+<li><a href="#PHP-Session-eg9" title="PHP Session eg.9">PHP Session eg.9</a><ul class="nav">
+<li><a href="#Starting-a-PHP-Session" title="Starting a PHP Session">Starting a PHP Session</a></li>
+<li><a href="#Accessing-Session-value" title="Accessing Session value">Accessing Session value</a></li>
+<li><a href="#Destroying-a-PHP-Session" title="Destroying a PHP Session">Destroying a PHP Session</a></li>
 </ul>
 </li>
 </ul>
