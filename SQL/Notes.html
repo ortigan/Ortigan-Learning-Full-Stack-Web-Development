@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="What-is-Database" data-id="What-is-Database"><a class="anchor hidden-xs" href="#What-is-Database" title="What-is-Database"><span class="octicon octicon-link"></span></a><span>What is Database?</span></h2><p><span>A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS). Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system, often shortened to just database.</span></p><p><span>Data within the most common types of databases in operation today is typically modeled in rows and columns in a series of tables to make processing and data querying efficient. The data can then be easily accessed, managed, modified, updated, controlled, and organized. Most databases use structured query language (SQL) for writing and querying data.</span></p><h2 id="What-is-SQL" data-id="What-is-SQL"><a class="anchor hidden-xs" href="#What-is-SQL" title="What-is-SQL"><span class="octicon octicon-link"></span></a><span>What is SQL?</span></h2><p><span>SQL is Structured Query Language, which is a computer language for storing, manipulating and retrieving data stored in a relational database.</span></p><p><span>SQL is the standard language for Relational Database System. All the Relational Database Management Systems (RDMS) like MySQL, MS Access, Oracle, Sybase, Informix, Postgres and SQL Server use SQL as their standard database language.</span></p><p><span>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, Address, City, PostalCode and Country. A field is a column in a table that is designed to maintain specific information about every record in the table.</span></p><p><span>A record, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</span></p><p><span>A column is a vertical entity in a table that contains all information associated with a specific field in a table.</span></p><h2 id="Why-SQL" data-id="Why-SQL"><a class="anchor hidden-xs" href="#Why-SQL" title="Why-SQL"><span class="octicon octicon-link"></span></a><span>Why SQL?</span></h2><p><span>SQL is widely popular because it offers the following advantages −</span></p><ul>
+    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="What-is-Database" data-id="What-is-Database"><a class="anchor hidden-xs" href="#What-is-Database" title="What-is-Database"><span class="octicon octicon-link"></span></a><span>What is Database?</span></h2><p><span>A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS). Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system, often shortened to just database.</span></p><p><span>Data within the most common types of databases in operation today is typically modeled in rows and columns in a series of tables to make processing and data querying efficient. The data can then be easily accessed, managed, modified, updated, controlled, and organized. Most databases use structured query language (SQL) for writing and querying data.</span></p><h2 id="What-is-SQL" data-id="What-is-SQL"><a class="anchor hidden-xs" href="#What-is-SQL" title="What-is-SQL"><span class="octicon octicon-link"></span></a><span>What is SQL?</span></h2><p><span>SQL is Structured Query Language, which is a computer language for storing, manipulating and retrieving data stored in a relational database.</span></p><p><span>SQL is the standard language for Relational Database System. All the Relational Database Management Systems (RDMS) like MySQL, MS Access, Oracle, Sybase, Informix, Postgres and SQL Server use SQL as their standard database language.</span></p><p><span>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, Address, City, PostalCode and Country. A field is a column in a table that is designed to maintain specific information about every record in the table.</span></p><p><span>A record, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</span></p><p><span>A column is a vertical entity in a table that contains all information associated with a specific field in a table.</span></p><h2 id="Why-SQL" data-id="Why-SQL"><a class="anchor hidden-xs" href="#Why-SQL" title="Why-SQL"><span class="octicon octicon-link"></span></a><span>Why SQL?</span></h2><p><span>SQL is widely popular because it offers the following advantages −</span></p><ul>
 <li><span>Allows users to access data in the relational database management systems.</span></li>
 <li><span>Allows users to describe the data.</span></li>
 <li><span>Allows users to define the data in a database and manipulate that data.</span></li>
@@ -59,7 +59,60 @@
 <li><strong><span>DROP TABLE</span></strong><span> - deletes a table</span></li>
 <li><strong><span>CREATE INDEX</span></strong><span> - creates an index (search key)</span></li>
 <li><strong><span>DROP INDEX</span></strong><span> - deletes an index</span></li>
-</ul><h2 id="Tables" data-id="Tables"><a class="anchor hidden-xs" href="#Tables" title="Tables"><span class="octicon octicon-link"></span></a><span>Tables</span></h2><p><a href="https://www.notion.so/748816ca758e4ae6abbb987b31b0fd92" target="_blank" rel="noopener"><span>Customers</span></a></p><h2 id="Select-Statement-eg-1" data-id="Select-Statement-eg-1"><a class="anchor hidden-xs" href="#Select-Statement-eg-1" title="Select-Statement-eg-1"><span class="octicon octicon-link"></span></a><strong><span>Select Statement eg. 1</span></strong></h2><p><strong><span>Syntax</span></strong></p><pre><code class="sql hljs"><span class="hljs-keyword">select</span> column1, column2, ...
+</ul><h2 id="Tables" data-id="Tables"><a class="anchor hidden-xs" href="#Tables" title="Tables"><span class="octicon octicon-link"></span></a><span>Tables</span></h2><table>
+<thead>
+<tr>
+<th><span>ID</span></th>
+<th><span>CustomerName</span></th>
+<th><span>Address</span></th>
+<th><span>City</span></th>
+<th><span>PostalCode</span></th>
+<th><span>Country</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>1</span></td>
+<td><span>Aniket Hake</span></td>
+<td><span>Saptashrungi society, N7</span></td>
+<td><span>Aurangabad</span></td>
+<td><span>431003</span></td>
+<td><span>India</span></td>
+</tr>
+<tr>
+<td><span>2</span></td>
+<td><span>Parag Chirde</span></td>
+<td><span>A10/2 Vekanand society, N4</span></td>
+<td><span>Aurangabad</span></td>
+<td><span>431003</span></td>
+<td><span>India</span></td>
+</tr>
+<tr>
+<td><span>3</span></td>
+<td><span>Shubham Padamwar</span></td>
+<td><span>99 Kasliwal</span></td>
+<td><span>Bhagyoday</span></td>
+<td><span>Pune</span></td>
+<td><span>411002</span></td>
+</tr>
+<tr>
+<td><span>4</span></td>
+<td><span>Garrick Mohan</span></td>
+<td><span>0 Arkansas Junction</span></td>
+<td><span>Suez</span></td>
+<td><span>NULL</span></td>
+<td><span>Egypt</span></td>
+</tr>
+<tr>
+<td><span>5</span></td>
+<td><span>Rois Snelgrove</span></td>
+<td><span>35 Eggendart Parkway</span></td>
+<td><span>P?ock</span></td>
+<td><span>09-410</span></td>
+<td><span>Poland</span></td>
+</tr>
+</tbody>
+</table><h2 id="Select-Statement-eg-1" data-id="Select-Statement-eg-1"><a class="anchor hidden-xs" href="#Select-Statement-eg-1" title="Select-Statement-eg-1"><span class="octicon octicon-link"></span></a><strong><span>Select Statement eg. 1</span></strong></h2><p><strong><span>Syntax</span></strong></p><pre><code class="sql hljs"><span class="hljs-keyword">select</span> column1, column2, ...
 <span class="hljs-keyword">from</span> table_name;
 </code></pre><p><span>Here, column1, column2, … are the field names of the table you want to select data from. If you want to select all the fields available in the table, use the following syntax:</span></p><pre><code class="sql hljs"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> table_name;
 </code></pre><p><span>Example 1.1</span></p><pre><code class="sql hljs"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> customers;
@@ -453,7 +506,7 @@
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
-<li class=""><a href="#What-is-Database" title="What is Database?">What is Database?</a></li>
+<li><a href="#What-is-Database" title="What is Database?">What is Database?</a></li>
 <li><a href="#What-is-SQL" title="What is SQL?">What is SQL?</a></li>
 <li><a href="#Why-SQL" title="Why SQL?">Why SQL?</a></li>
 <li><a href="#A-Brief-History-of-SQL" title="A Brief History of SQL">A Brief History of SQL</a></li>

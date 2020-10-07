@@ -53,7 +53,15 @@ SQL is widely popular because it offers the following advantages −
 
 ## Tables
 
-[Customers](https://www.notion.so/748816ca758e4ae6abbb987b31b0fd92)
+
+| ID | CustomerName | Address | City | PostalCode | Country |
+| -------- | -------- | -------- | -------- | -------- | -------- |
+|1	    | Aniket Hake |	Saptashrungi society, N7	|Aurangabad	| 431003	| India|
+|2	| Parag Chirde|	A10/2 Vekanand society, N4	|Aurangabad	|431003	|India|
+|3	| Shubham Padamwar	|99 Kasliwal| Bhagyoday|	Pune	|411002|	India|
+|4	| Garrick Mohan	|0 Arkansas Junction|	Suez| NULL|	Egypt |
+|5	| Rois Snelgrove	|35 Eggendart Parkway 	|P?ock |	09-410|	Poland|
+
 
 ## **Select Statement eg. 1**
 
