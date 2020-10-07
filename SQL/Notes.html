@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="mobile-web-app-capable" content="yes">
     <title>
-        Notes 
+        Notes
     </title>
     <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
     <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Notes-SQL" data-id="Notes-SQL"><a class="anchor hidden-xs" href="#Notes-SQL" title="Notes-SQL"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="What-is-Database" data-id="What-is-Database"><a class="anchor hidden-xs" href="#What-is-Database" title="What-is-Database"><span class="octicon octicon-link"></span></a><span>What is Database?</span></h2><p><span>A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS). Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system, often shortened to just database.</span></p><p><span>Data within the most common types of databases in operation today is typically modeled in rows and columns in a series of tables to make processing and data querying efficient. The data can then be easily accessed, managed, modified, updated, controlled, and organized. Most databases use structured query language (SQL) for writing and querying data.</span></p><h2 id="What-is-SQL" data-id="What-is-SQL"><a class="anchor hidden-xs" href="#What-is-SQL" title="What-is-SQL"><span class="octicon octicon-link"></span></a><span>What is SQL?</span></h2><p><span>SQL is Structured Query Language, which is a computer language for storing, manipulating and retrieving data stored in a relational database.</span></p><p><span>SQL is the standard language for Relational Database System. All the Relational Database Management Systems (RDMS) like MySQL, MS Access, Oracle, Sybase, Informix, Postgres and SQL Server use SQL as their standard database language.</span></p><p><span>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, Address, City, PostalCode and Country. A field is a column in a table that is designed to maintain specific information about every record in the table.</span></p><p><span>A record, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</span></p><p><span>A column is a vertical entity in a table that contains all information associated with a specific field in a table.</span></p><h2 id="Why-SQL" data-id="Why-SQL"><a class="anchor hidden-xs" href="#Why-SQL" title="Why-SQL"><span class="octicon octicon-link"></span></a><span>Why SQL?</span></h2><p><span>SQL is widely popular because it offers the following advantages −</span></p><ul>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Notes" data-id="Notes"><a class="anchor hidden-xs" href="#Notes" title="Notes"><span class="octicon octicon-link"></span></a><span>Notes</span></h1><h2 id="What-is-Database" data-id="What-is-Database"><a class="anchor hidden-xs" href="#What-is-Database" title="What-is-Database"><span class="octicon octicon-link"></span></a><span>What is Database?</span></h2><p><span>A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS). Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system, often shortened to just database.</span></p><p><span>Data within the most common types of databases in operation today is typically modeled in rows and columns in a series of tables to make processing and data querying efficient. The data can then be easily accessed, managed, modified, updated, controlled, and organized. Most databases use structured query language (SQL) for writing and querying data.</span></p><h2 id="What-is-SQL" data-id="What-is-SQL"><a class="anchor hidden-xs" href="#What-is-SQL" title="What-is-SQL"><span class="octicon octicon-link"></span></a><span>What is SQL?</span></h2><p><span>SQL is Structured Query Language, which is a computer language for storing, manipulating and retrieving data stored in a relational database.</span></p><p><span>SQL is the standard language for Relational Database System. All the Relational Database Management Systems (RDMS) like MySQL, MS Access, Oracle, Sybase, Informix, Postgres and SQL Server use SQL as their standard database language.</span></p><p><span>Every table is broken up into smaller entities called fields. The fields in the Customers table consist of CustomerID, CustomerName, Address, City, PostalCode and Country. A field is a column in a table that is designed to maintain specific information about every record in the table.</span></p><p><span>A record, also called a row, is each individual entry that exists in a table. For example, there are 91 records in the above Customers table. A record is a horizontal entity in a table.</span></p><p><span>A column is a vertical entity in a table that contains all information associated with a specific field in a table.</span></p><h2 id="Why-SQL" data-id="Why-SQL"><a class="anchor hidden-xs" href="#Why-SQL" title="Why-SQL"><span class="octicon octicon-link"></span></a><span>Why SQL?</span></h2><p><span>SQL is widely popular because it offers the following advantages −</span></p><ul>
 <li><span>Allows users to access data in the relational database management systems.</span></li>
 <li><span>Allows users to describe the data.</span></li>
 <li><span>Allows users to define the data in a database and manipulate that data.</span></li>
@@ -196,6 +196,213 @@
 |  5 | Rois Snelgrove    | 35 Eggendart Parkway         | P?ock       | 09-410      | Poland    |
 |  6 | Jaideep Khedekar  | bypass                       | Mumbai      | 56789       | India     |
 +<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+</code></pre><h2 id="SQL-CREATE-TABLE-Statement-eg7" data-id="SQL-CREATE-TABLE-Statement-eg7"><a class="anchor hidden-xs" href="#SQL-CREATE-TABLE-Statement-eg7" title="SQL-CREATE-TABLE-Statement-eg7"><span class="octicon octicon-link"></span></a><span>SQL CREATE TABLE Statement eg.7</span></h2><p><span>The CREATE TABLE statement is used to create a new table in a database.</span></p><p><strong><span>Syntax</span></strong></p><pre><code class="sql hljs"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+</code></pre><p><span>Each column in a database table is required to have a name and a data type.</span></p><p><span>Example 7.1</span></p><p><span>Table in database</span></p><pre><code class="sql hljs"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;
+
++<span class="hljs-comment">--------------------+</span>
+| Tables_in_learning |
++<span class="hljs-comment">--------------------+</span>
+| customers          |
++<span class="hljs-comment">--------------------+</span>
+</code></pre><pre><code class="sql hljs"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> persons(
+  personID <span class="hljs-built_in">int</span>,
+  last_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),
+  first_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),
+  address <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),
+  city <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),
+  state <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>),
+  zip_code <span class="hljs-built_in">int</span>,
+);
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;
+
++<span class="hljs-comment">--------------------+</span>
+| Tables_in_learning |
++<span class="hljs-comment">--------------------+</span>
+| customers          |
+| persons            |
++<span class="hljs-comment">--------------------+</span>
+</code></pre><h2 id="SQL-ALTER-TABLE-Statement-eg8" data-id="SQL-ALTER-TABLE-Statement-eg8"><a class="anchor hidden-xs" href="#SQL-ALTER-TABLE-Statement-eg8" title="SQL-ALTER-TABLE-Statement-eg8"><span class="octicon octicon-link"></span></a><span>SQL ALTER TABLE Statement eg.8</span></h2><p><span>The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.</span></p><p><span>The ALTER TABLE statement is also used to add and drop various constraints on an existing table.</span></p><h3 id="ALTER-TABLE---ADD-Column" data-id="ALTER-TABLE---ADD-Column"><a class="anchor hidden-xs" href="#ALTER-TABLE---ADD-Column" title="ALTER-TABLE---ADD-Column"><span class="octicon octicon-link"></span></a><span>ALTER TABLE - ADD Column</span></h3><p><span>To add a column in a table, use the following syntax:</span></p><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name
+<span class="hljs-keyword">ADD</span> column_name datatype;
+</code></pre><p><span>Example 8.1</span></p><p><span>The following SQL adds an “Email” column to the “Persons” table:</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
+//<span class="hljs-keyword">show</span> details about the <span class="hljs-keyword">table</span>
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> persons <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>);
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons 
+//<span class="hljs-keyword">show</span> details about the <span class="hljs-keyword">table</span>
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| email      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><h3 id="ALTER-TABLE---ALTERMODIFY-COLUMN" data-id="ALTER-TABLE---ALTERMODIFY-COLUMN"><a class="anchor hidden-xs" href="#ALTER-TABLE---ALTERMODIFY-COLUMN" title="ALTER-TABLE---ALTERMODIFY-COLUMN"><span class="octicon octicon-link"></span></a><span>ALTER TABLE - ALTER/MODIFY COLUMN</span></h3><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name
+<span class="hljs-keyword">MODIFY</span> <span class="hljs-keyword">COLUMN</span> column_name datatype;
+</code></pre><p><span>The following SQL modify email column change data-type varchar(255) to varchar(200)</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
+//<span class="hljs-keyword">show</span> details about the <span class="hljs-keyword">table</span>
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| email      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> persons <span class="hljs-keyword">MODIFY</span> <span class="hljs-keyword">COLUMN</span> email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>);
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
+//<span class="hljs-keyword">show</span> details about the <span class="hljs-keyword">table</span>
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| email      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><h3 id="ALTER-TABLE---DROP-COLUMN" data-id="ALTER-TABLE---DROP-COLUMN"><a class="anchor hidden-xs" href="#ALTER-TABLE---DROP-COLUMN" title="ALTER-TABLE---DROP-COLUMN"><span class="octicon octicon-link"></span></a><span>ALTER TABLE - DROP COLUMN</span></h3><p><span>To delete a column in a table, use the following syntax (notice that some database systems don’t allow deleting a column):</span></p><p><span>Use the following Syntax :</span></p><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> column_name;
+</code></pre><p><span>Example 8.3</span></p><p><span>SQL deletes the “Email” column from the “persons” table</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
+//<span class="hljs-keyword">show</span> details about the <span class="hljs-keyword">table</span>
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| email      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> persons
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> email;
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
+//<span class="hljs-keyword">show</span> details about the <span class="hljs-keyword">table</span>
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><h2 id="Create-Constraints-eg9" data-id="Create-Constraints-eg9"><a class="anchor hidden-xs" href="#Create-Constraints-eg9" title="Create-Constraints-eg9"><span class="octicon octicon-link"></span></a><span>Create Constraints eg.9</span></h2><p><span>Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement.</span></p><pre><code class="sql hljs"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name (
+    column1 datatype <span class="hljs-keyword">constraint</span>,
+    column2 datatype <span class="hljs-keyword">constraint</span>,
+    column3 datatype <span class="hljs-keyword">constraint</span>,
+    ....
+);
+</code></pre><h3 id="The-following-constraints-are-commonly-used-in-SQL" data-id="The-following-constraints-are-commonly-used-in-SQL"><a class="anchor hidden-xs" href="#The-following-constraints-are-commonly-used-in-SQL" title="The-following-constraints-are-commonly-used-in-SQL"><span class="octicon octicon-link"></span></a><span>The following constraints are commonly used in SQL:</span></h3><ul>
+<li><strong><span>NOT NULL</span></strong><span> - Ensures that a column cannot have a NULL value</span></li>
+<li><strong><span>UNIQUE</span></strong><span> - Ensures that all values in a column are different</span></li>
+<li><strong><span>PRIMARY KEY</span></strong><span> - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table</span></li>
+<li><strong><span>FOREIGN KEY</span></strong><span> - Uniquely identifies a row/record in another table</span></li>
+<li><strong><span>CHECK</span></strong><span> - Ensures that all values in a column satisfies a specific condition</span></li>
+<li><strong><span>DEFAULT</span></strong><span> - Sets a default value for a column when no value is specified</span></li>
+<li><strong><span>INDEX</span></strong><span> - Used to create and retrieve data from the database very quickly</span></li>
+</ul><p><span>Example 9.1</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><pre><code class="sql hljs"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> persons <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">UNIQUE</span>;
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs"><span class="hljs-keyword">EXPLAIN</span> persons
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| <span class="hljs-keyword">Field</span>      | <span class="hljs-keyword">Type</span>         | <span class="hljs-literal">Null</span> | <span class="hljs-keyword">Key</span> | <span class="hljs-keyword">Default</span>      | Extra |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+| personID   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| first_name | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| last_name  | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| address    | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| contact    | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| city       | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| state      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| zip_code   | <span class="hljs-built_in">int</span>          | YES  |     | <span class="hljs-literal">NULL</span>         |       |
+| email      | <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) | <span class="hljs-keyword">NO</span>   |     | <span class="hljs-literal">NULL</span>         |       |
++<span class="hljs-comment">------------+--------------+------+-----+--------------+-------+</span>
+</code></pre><h2 id="The-SQL-SELECT-TOP-Clause-eg10" data-id="The-SQL-SELECT-TOP-Clause-eg10"><a class="anchor hidden-xs" href="#The-SQL-SELECT-TOP-Clause-eg10" title="The-SQL-SELECT-TOP-Clause-eg10"><span class="octicon octicon-link"></span></a><span>The SQL SELECT TOP Clause eg.10</span></h2><p><span>The SELECT TOP clause is used to specify the number of records to return.</span></p><p><span>The SELECT TOP clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.</span></p><blockquote>
+<p><strong><span>Note</span></strong><span>: Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records, while Oracle uses ROWNUM.</span></p>
+</blockquote><h3 id="SELECT-LIMIT-Clause" data-id="SELECT-LIMIT-Clause"><a class="anchor hidden-xs" href="#SELECT-LIMIT-Clause" title="SELECT-LIMIT-Clause"><span class="octicon octicon-link"></span></a><span>SELECT LIMIT Clause</span></h3><p><span>We use LIMIT clause to select a limited number of records.</span></p><p><span>Syntax</span></p><pre><code class="sql hljs"><span class="hljs-keyword">SELECT</span> column_name(s)
+<span class="hljs-keyword">FROM</span> table_name
+<span class="hljs-keyword">WHERE</span> condition
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-built_in">number</span>;
+</code></pre><p><span>Example 10.1</span></p><pre><code class="sql hljs"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> customer <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">2</span>;
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs">+<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+| id | CustomerName      | address                      | city        | PostalCode  | country   |
++<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+|  1 | Aniket Hake       | Saptashrungi society, N7     | Aurangabad  | 431003      | India     |
+|  2 | Parag Chirde      | A10/2 Vekanand society, N4   | Aurangabad  | 431003      | India     |
++<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+</code></pre><h3 id="SELECT-OFFSET-Clause" data-id="SELECT-OFFSET-Clause"><a class="anchor hidden-xs" href="#SELECT-OFFSET-Clause" title="SELECT-OFFSET-Clause"><span class="octicon octicon-link"></span></a><span>SELECT OFFSET Clause</span></h3><p><span>The OFFSET is the number of rows to skip before including them in the result.</span></p><p><span>The SQL query below says “return only 2 records, start on record 5 (OFFSET 4)”:</span></p><p><span>Example 10.2</span></p><pre><code class="sql hljs"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> customers <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">2</span> <span class="hljs-keyword">OFFSET</span> <span class="hljs-number">4</span>;
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs">+<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+| id | CustomerName      | address                      | city        | PostalCode  | country   |
++<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+|  5 | Rois Snelgrove    | 35 Eggendart Parkway         | P?ock       | 09-410      | Poland    |
+|  6 | Jaideep Khedekar  | bypass                       | Mumbai      | 56789       | India     |
++<span class="hljs-comment">----+-------------------+------------------------------+-------------+-------------+-----------+</span>
+</code></pre><h2 id="The-SQL-DROP-TABLE-Statement-eg11" data-id="The-SQL-DROP-TABLE-Statement-eg11"><a class="anchor hidden-xs" href="#The-SQL-DROP-TABLE-Statement-eg11" title="The-SQL-DROP-TABLE-Statement-eg11"><span class="octicon octicon-link"></span></a><span>The SQL DROP TABLE Statement eg.11</span></h2><p><span>The DROP TABLE statement is used to drop an existing table in a database.</span></p><p><strong><span>Syntax</span></strong></p><pre><code class="sql hljs"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> table_name;
+</code></pre><p><span>Example 11.1</span></p><pre><code class="sql hljs"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;
+
++<span class="hljs-comment">--------------------+</span>
+| Tables_in_learning |
++<span class="hljs-comment">--------------------+</span>
+| customers          |
+| persons            |
++<span class="hljs-comment">--------------------+</span>
+</code></pre><pre><code class="sql hljs"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">table</span> persons;
+</code></pre><p><span>Output</span></p><pre><code class="sql hljs"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;
+
++<span class="hljs-comment">--------------------+</span>
+| Tables_in_learning |
++<span class="hljs-comment">--------------------+</span>
+| customers          |
++<span class="hljs-comment">--------------------+</span>
 </code></pre></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
@@ -204,7 +411,7 @@
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li class=""><a href="#Notes-SQL" title="Notes (SQL)">Notes</a><ul class="nav">
+<li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
 <li><a href="#What-is-Database" title="What is Database?">What is Database?</a></li>
 <li><a href="#What-is-SQL" title="What is SQL?">What is SQL?</a></li>
 <li><a href="#Why-SQL" title="Why SQL?">Why SQL?</a></li>
@@ -219,6 +426,23 @@
 </ul>
 </li>
 <li><a href="#SQL-INSERT-INTO-Statement-eg6" title="SQL INSERT INTO Statement eg.6">SQL INSERT INTO Statement eg.6</a></li>
+<li><a href="#SQL-CREATE-TABLE-Statement-eg7" title="SQL CREATE TABLE Statement eg.7">SQL CREATE TABLE Statement eg.7</a></li>
+<li><a href="#SQL-ALTER-TABLE-Statement-eg8" title="SQL ALTER TABLE Statement eg.8">SQL ALTER TABLE Statement eg.8</a><ul class="nav">
+<li><a href="#ALTER-TABLE---ADD-Column" title="ALTER TABLE - ADD Column">ALTER TABLE - ADD Column</a></li>
+<li><a href="#ALTER-TABLE---ALTERMODIFY-COLUMN" title="ALTER TABLE - ALTER/MODIFY COLUMN">ALTER TABLE - ALTER/MODIFY COLUMN</a></li>
+<li><a href="#ALTER-TABLE---DROP-COLUMN" title="ALTER TABLE - DROP COLUMN">ALTER TABLE - DROP COLUMN</a></li>
+</ul>
+</li>
+<li><a href="#Create-Constraints-eg9" title="Create Constraints eg.9">Create Constraints eg.9</a><ul class="nav">
+<li><a href="#The-following-constraints-are-commonly-used-in-SQL" title="The following constraints are commonly used in SQL:">The following constraints are commonly used in SQL:</a></li>
+</ul>
+</li>
+<li><a href="#The-SQL-SELECT-TOP-Clause-eg10" title="The SQL SELECT TOP Clause eg.10">The SQL SELECT TOP Clause eg.10</a><ul class="nav">
+<li><a href="#SELECT-LIMIT-Clause" title="SELECT LIMIT Clause">SELECT LIMIT Clause</a></li>
+<li><a href="#SELECT-OFFSET-Clause" title="SELECT OFFSET Clause">SELECT OFFSET Clause</a></li>
+</ul>
+</li>
+<li><a href="#The-SQL-DROP-TABLE-Statement-eg11" title="The SQL DROP TABLE Statement eg.11">The SQL DROP TABLE Statement eg.11</a></li>
 </ul>
 </li>
 </ul>
@@ -228,21 +452,38 @@
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li class=""><a href="#Notes-SQL" title="Notes (SQL)">Notes</a><ul class="nav">
+<li class=""><a href="#Notes" title="Notes">Notes</a><ul class="nav">
 <li class=""><a href="#What-is-Database" title="What is Database?">What is Database?</a></li>
-<li class=""><a href="#What-is-SQL" title="What is SQL?">What is SQL?</a></li>
-<li class=""><a href="#Why-SQL" title="Why SQL?">Why SQL?</a></li>
-<li class=""><a href="#A-Brief-History-of-SQL" title="A Brief History of SQL">A Brief History of SQL</a></li>
-<li class=""><a href="#Some-of-The-Most-Important-SQL-Commands" title="Some of The Most Important SQL Commands">Some of The Most Important SQL Commands</a></li>
-<li class=""><a href="#Tables" title="Tables">Tables</a></li>
-<li class=""><a href="#Select-Statement-eg-1" title="Select Statement eg. 1">Select Statement eg. 1</a></li>
-<li class=""><a href="#Select-Distinct-Statement-eg-2" title="Select Distinct Statement eg. 2">Select Distinct Statement eg. 2</a></li>
-<li class=""><a href="#Where-Clause-eg-3" title="Where Clause eg. 3">Where Clause eg. 3</a></li>
-<li class=""><a href="#SQL-AND-OR-and-NOT-OperatorE-eg-4" title="SQL AND, OR and NOT OperatorE eg. 4">SQL AND, OR and NOT OperatorE eg. 4</a><ul class="nav">
-<li class=""><a href="#The-SQL-ORDER-BY-Keyword-eg-5" title="The SQL ORDER BY Keyword eg 5">The SQL ORDER BY Keyword eg 5</a></li>
+<li><a href="#What-is-SQL" title="What is SQL?">What is SQL?</a></li>
+<li><a href="#Why-SQL" title="Why SQL?">Why SQL?</a></li>
+<li><a href="#A-Brief-History-of-SQL" title="A Brief History of SQL">A Brief History of SQL</a></li>
+<li><a href="#Some-of-The-Most-Important-SQL-Commands" title="Some of The Most Important SQL Commands">Some of The Most Important SQL Commands</a></li>
+<li><a href="#Tables" title="Tables">Tables</a></li>
+<li><a href="#Select-Statement-eg-1" title="Select Statement eg. 1">Select Statement eg. 1</a></li>
+<li><a href="#Select-Distinct-Statement-eg-2" title="Select Distinct Statement eg. 2">Select Distinct Statement eg. 2</a></li>
+<li><a href="#Where-Clause-eg-3" title="Where Clause eg. 3">Where Clause eg. 3</a></li>
+<li><a href="#SQL-AND-OR-and-NOT-OperatorE-eg-4" title="SQL AND, OR and NOT OperatorE eg. 4">SQL AND, OR and NOT OperatorE eg. 4</a><ul class="nav">
+<li><a href="#The-SQL-ORDER-BY-Keyword-eg-5" title="The SQL ORDER BY Keyword eg 5">The SQL ORDER BY Keyword eg 5</a></li>
 </ul>
 </li>
-<li class=""><a href="#SQL-INSERT-INTO-Statement-eg6" title="SQL INSERT INTO Statement eg.6">SQL INSERT INTO Statement eg.6</a></li>
+<li><a href="#SQL-INSERT-INTO-Statement-eg6" title="SQL INSERT INTO Statement eg.6">SQL INSERT INTO Statement eg.6</a></li>
+<li><a href="#SQL-CREATE-TABLE-Statement-eg7" title="SQL CREATE TABLE Statement eg.7">SQL CREATE TABLE Statement eg.7</a></li>
+<li><a href="#SQL-ALTER-TABLE-Statement-eg8" title="SQL ALTER TABLE Statement eg.8">SQL ALTER TABLE Statement eg.8</a><ul class="nav">
+<li><a href="#ALTER-TABLE---ADD-Column" title="ALTER TABLE - ADD Column">ALTER TABLE - ADD Column</a></li>
+<li><a href="#ALTER-TABLE---ALTERMODIFY-COLUMN" title="ALTER TABLE - ALTER/MODIFY COLUMN">ALTER TABLE - ALTER/MODIFY COLUMN</a></li>
+<li><a href="#ALTER-TABLE---DROP-COLUMN" title="ALTER TABLE - DROP COLUMN">ALTER TABLE - DROP COLUMN</a></li>
+</ul>
+</li>
+<li><a href="#Create-Constraints-eg9" title="Create Constraints eg.9">Create Constraints eg.9</a><ul class="nav">
+<li><a href="#The-following-constraints-are-commonly-used-in-SQL" title="The following constraints are commonly used in SQL:">The following constraints are commonly used in SQL:</a></li>
+</ul>
+</li>
+<li><a href="#The-SQL-SELECT-TOP-Clause-eg10" title="The SQL SELECT TOP Clause eg.10">The SQL SELECT TOP Clause eg.10</a><ul class="nav">
+<li><a href="#SELECT-LIMIT-Clause" title="SELECT LIMIT Clause">SELECT LIMIT Clause</a></li>
+<li><a href="#SELECT-OFFSET-Clause" title="SELECT OFFSET Clause">SELECT OFFSET Clause</a></li>
+</ul>
+</li>
+<li><a href="#The-SQL-DROP-TABLE-Statement-eg11" title="The SQL DROP TABLE Statement eg.11">The SQL DROP TABLE Statement eg.11</a></li>
 </ul>
 </li>
 </ul>

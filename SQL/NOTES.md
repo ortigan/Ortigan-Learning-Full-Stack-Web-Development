@@ -395,3 +395,391 @@ Output
 |  6 | Jaideep Khedekar  | bypass                       | Mumbai      | 56789       | India     |
 +----+-------------------+------------------------------+-------------+-------------+-----------+
 ```
+
+## SQL CREATE TABLE Statement eg.7
+
+The CREATE TABLE statement is used to create a new table in a database.
+
+**Syntax**
+
+```sql
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+```
+
+Each column in a database table is required to have a name and a data type.
+
+Example 7.1
+
+Table in database
+
+```sql
+show tables;
+
++--------------------+
+| Tables_in_learning |
++--------------------+
+| customers          |
++--------------------+
+```
+
+```sql
+create table persons(
+  personID int,
+  last_name varchar(255),
+  first_name varchar(255),
+  address varchar(255),
+  city varchar(255),
+  state varchar(255),
+  zip_code int,
+);
+```
+
+Output
+
+```sql
+show tables;
+
++--------------------+
+| Tables_in_learning |
++--------------------+
+| customers          |
+| persons            |
++--------------------+
+```
+
+## SQL ALTER TABLE Statement eg.8
+
+The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+
+The ALTER TABLE statement is also used to add and drop various constraints on an existing table.
+
+### ALTER TABLE - ADD Column
+
+To add a column in a table, use the following syntax:
+
+```sql
+ALTER TABLE table_name
+ADD column_name datatype;
+```
+
+Example 8.1
+
+The following SQL adds an "Email" column to the "Persons" table:
+
+```sql
+EXPLAIN persons
+//show details about the table
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+```sql
+ALTER TABLE persons ADD COLUMN email varchar(255);
+```
+
+Output
+
+```sql
+EXPLAIN persons 
+//show details about the table
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
+| email      | varchar(255) | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+### ALTER TABLE - ALTER/MODIFY COLUMN
+
+```sql
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+```
+
+The following SQL modify email column change data-type varchar(255) to varchar(200)
+
+```sql
+EXPLAIN persons
+//show details about the table
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
+| email      | varchar(255) | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+```sql
+ALTER TABLE persons MODIFY COLUMN email varchar(200);
+```
+
+Output
+
+```sql
+EXPLAIN persons
+//show details about the table
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
+| email      | varchar(200) | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+### ALTER TABLE - DROP COLUMN
+
+To delete a column in a table, use the following syntax (notice that some database systems don't allow deleting a column):
+
+Use the following Syntax :
+
+```sql
+ALTER TABLE table_name
+DROP COLUMN column_name;
+```
+
+Example 8.3
+
+SQL deletes the "Email" column from the "persons" table
+
+```sql
+EXPLAIN persons
+//show details about the table
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
+| email      | varchar(200) | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+```sql
+ALTER TABLE persons
+DROP COLUMN email;
+```
+
+Output
+
+```sql
+EXPLAIN persons
+//show details about the table
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+## Create Constraints eg.9
+
+Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement.
+
+```sql
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+```
+
+### The following constraints are commonly used in SQL:
+
+- **NOT NULL** - Ensures that a column cannot have a NULL value
+- **UNIQUE** - Ensures that all values in a column are different
+- **PRIMARY KEY** - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+- **FOREIGN KEY** - Uniquely identifies a row/record in another table
+- **CHECK** - Ensures that all values in a column satisfies a specific condition
+- **DEFAULT** - Sets a default value for a column when no value is specified
+- **INDEX** - Used to create and retrieve data from the database very quickly
+
+Example 9.1
+
+```sql
+EXPLAIN persons
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+```sql
+ALTER TABLE persons ADD COLUMN email varchar(255) NOT NULL UNIQUE;
+```
+
+Output
+
+```sql
+EXPLAIN persons
++------------+--------------+------+-----+--------------+-------+
+| Field      | Type         | Null | Key | Default      | Extra |
++------------+--------------+------+-----+--------------+-------+
+| personID   | int          | YES  |     | NULL         |       |
+| first_name | varchar(255) | YES  |     | NULL         |       |
+| last_name  | varchar(255) | YES  |     | NULL         |       |
+| address    | varchar(255) | YES  |     | NULL         |       |
+| contact    | int          | YES  |     | NULL         |       |
+| city       | varchar(255) | YES  |     | NULL         |       |
+| state      | varchar(255) | YES  |     | NULL         |       |
+| zip_code   | int          | YES  |     | NULL         |       |
+| email      | varchar(255) | NO   |     | NULL         |       |
++------------+--------------+------+-----+--------------+-------+
+```
+
+## The SQL SELECT TOP Clause eg.10
+
+The SELECT TOP clause is used to specify the number of records to return.
+
+The SELECT TOP clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.
+
+> **Note**: Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records, while Oracle uses ROWNUM.
+
+### SELECT LIMIT Clause
+
+We use LIMIT clause to select a limited number of records.
+
+Syntax
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;
+```
+
+Example 10.1
+
+```sql
+SELECT * FROM customer LIMIT 2;
+```
+
+Output 
+
+```sql
++----+-------------------+------------------------------+-------------+-------------+-----------+
+| id | CustomerName      | address                      | city        | PostalCode  | country   |
++----+-------------------+------------------------------+-------------+-------------+-----------+
+|  1 | Aniket Hake       | Saptashrungi society, N7     | Aurangabad  | 431003      | India     |
+|  2 | Parag Chirde      | A10/2 Vekanand society, N4   | Aurangabad  | 431003      | India     |
++----+-------------------+------------------------------+-------------+-------------+-----------+
+```
+
+### SELECT OFFSET Clause
+
+The OFFSET is the number of rows to skip before including them in the result.
+
+The SQL query below says "return only 2 records, start on record 5 (OFFSET 4)":
+
+Example 10.2
+
+```sql
+SELECT * FROM customers LIMIT 2 OFFSET 4;
+```
+
+Output
+
+```sql
++----+-------------------+------------------------------+-------------+-------------+-----------+
+| id | CustomerName      | address                      | city        | PostalCode  | country   |
++----+-------------------+------------------------------+-------------+-------------+-----------+
+|  5 | Rois Snelgrove    | 35 Eggendart Parkway         | P?ock       | 09-410      | Poland    |
+|  6 | Jaideep Khedekar  | bypass                       | Mumbai      | 56789       | India     |
++----+-------------------+------------------------------+-------------+-------------+-----------+
+```
+
+## The SQL DROP TABLE Statement eg.11
+
+The DROP TABLE statement is used to drop an existing table in a database.
+
+**Syntax**
+
+```sql
+DROP TABLE table_name;
+```
+
+ Example 11.1
+
+```sql
+show tables;
+
++--------------------+
+| Tables_in_learning |
++--------------------+
+| customers          |
+| persons            |
++--------------------+
+```
+
+```sql
+DROP table persons;
+```
+
+Output
+
+```sql
+show tables;
+
++--------------------+
+| Tables_in_learning |
++--------------------+
+| customers          |
++--------------------+
+```
