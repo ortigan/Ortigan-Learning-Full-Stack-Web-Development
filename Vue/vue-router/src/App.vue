@@ -1,13 +1,16 @@
 <template>
   <div id="app">
+    <!-- Navigartion Bar Constant -->
     <div id="nav" style="background-color:green">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/contact">Contact</router-link>
+      <router-link to="/contact">Contact</router-link> | 
+      <router-link to="/users">Users</router-link> | 
     </div>
-    <!--  -->
-    <router-view/>
-    <!--  -->
+      <!--  -->
+      <router-view/>
+      <!--  -->
+    <!-- Footer -->
     <footer style="background-color:black; color:white">
       Footer
     </footer>

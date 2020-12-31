@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+//
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,8 @@ const routes = [{
         name: 'Home',
         component: Home
     },
+
+    //Best way to use components
     {
         path: '/about',
         name: 'About',
@@ -22,6 +25,16 @@ const routes = [{
         path: '/contact',
         component: () =>
             import ('../views/Contact.vue')
+    },
+    {
+        path: '/users',
+        component: () =>
+            import ('../views/Users.vue')
+    },
+    {
+        path: '/users/:id',
+        component: () =>
+            import ('../views/SingleUser.vue')
     }
 ]
 
