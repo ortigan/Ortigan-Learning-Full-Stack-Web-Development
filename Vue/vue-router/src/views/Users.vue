@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>{{ usersCount }}</h2>
     <b-container class="bv-example-row">
       <div class="row">
         <div class="col-4" v-for="(user, index) in users" :key="index">
@@ -31,7 +32,8 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            users: []
+            users: [],
+            usersCount: ''
         }
     },
     created(){
@@ -43,11 +45,13 @@ export default {
             .then(response => {
                 console.log(response.data.data)
                 this.users = response.data.data
+                this.usersCount = this.users.length
             })
             .catch(err => {
                 console.log(err)
             })
-        }
+        }        //chaining
+        //axios.get(.....).then(....).catch()
     }
 };
 </script>
